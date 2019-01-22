@@ -55,6 +55,7 @@ libpq.so.5 libpq5 #MINVER#
  PQfreeNotify@Base 0
  PQfreemem@Base 0
  PQfsize@Base 0
+ PQfsource@Base 0
  PQftable@Base 0
  PQftablecol@Base 0
  PQftype@Base 0
