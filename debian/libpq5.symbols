@@ -67,6 +67,7 @@ libpq.so.5 libpq5 #MINVER#
  PQfreeNotify@Base 0
  PQfreemem@Base 0
  PQfsize@Base 0
+ PQfsource@Base 0
  PQftable@Base 0
  PQftablecol@Base 0
  PQftype@Base 0
@@ -160,6 +161,7 @@ libpq.so.5 libpq5 #MINVER#
  PQsetvalue@Base 8.4~
  PQsocket@Base 0
  PQsocketPoll@Base 17~~
+ PQsourceInfo@Base 12.4-1-maruska
  PQsslAttribute@Base 9.5~~
  PQsslAttributeNames@Base 9.5~~
  PQsslInUse@Base 9.5~~
