@@ -1,3 +1,15 @@
+postgresql-14 (14.4-1-maruska) unstable; urgency=medium
+
+  * auto: introduce my way of checking out the sources: from mmc13.1
+  * Add my Symbols to the list -- in the library!
+  * Add PQsourceInfo
+  * Refresh the diffs of debian patches which clash with my modifications.
+  * libecpg 6 -> 7
+  * Back to libecpg6: ./debian/tmp/usr/lib/x86_64-linux-gnu/libecpg.so.6.12
+  * use 14.4-mmc
+
+ -- Michal Maruska <mmaruska@gmail.com>  Sat, 18 Jun 2022 01:42:53 +0200
+
 postgresql-14 (14.4-1) unstable; urgency=medium
 
   * New upstream release.
