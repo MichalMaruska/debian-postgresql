@@ -1,3 +1,9 @@
+postgresql-14 (14.5-1-maruska) unstable; urgency=medium
+
+  * use 14.5-mmc
+
+ -- Michal Maruska <mmaruska@gmail.com>  Fri, 12 Aug 2022 17:53:47 +0200
+
 postgresql-14 (14.4-1-maruska) unstable; urgency=medium
 
   * auto: introduce my way of checking out the sources: from mmc13.1
