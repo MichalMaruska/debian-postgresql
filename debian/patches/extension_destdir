@@ -1,31 +1,3 @@
---- a/src/backend/utils/misc/guc.c
-+++ b/src/backend/utils/misc/guc.c
-@@ -655,6 +655,7 @@ char	   *ConfigFileName;
- char	   *HbaFileName;
- char	   *IdentFileName;
- char	   *external_pid_file;
-+char	   *extension_destdir;
- 
- char	   *pgstat_temp_directory;
- 
-@@ -4529,6 +4530,17 @@ static struct config_string ConfigureNam
- 	},
- 
- 	{
-+		{"extension_destdir", PGC_SUSET, FILE_LOCATIONS,
-+			gettext_noop("Path to prepend for extension loading"),
-+			gettext_noop("This directory is prepended to paths when loading extensions (control and SQL files), and to the '$libdir' directive when loading modules that back functions. The location is made configurable to allow build-time testing of extensions that do not have been installed to their proper location yet."),
-+			GUC_SUPERUSER_ONLY
-+		},
-+		&extension_destdir,
-+		"",
-+		NULL, NULL, NULL
-+	},
-+
-+	{
- 		{"ssl_library", PGC_INTERNAL, PRESET_OPTIONS,
- 			gettext_noop("Shows the name of the SSL library."),
- 			NULL,
 --- a/src/backend/commands/extension.c
 +++ b/src/backend/commands/extension.c
 @@ -128,6 +128,8 @@ static void ApplyExtensionUpdates(Oid ex
@@ -95,7 +67,7 @@
  	if (from_version)
  		snprintf(result, MAXPGPATH, "%s/%s--%s--%s.sql",
  				 scriptdir, control->name, from_version, version);
-@@ -1133,6 +1172,59 @@ get_ext_ver_list(ExtensionControlFile *c
+@@ -1142,6 +1181,59 @@ get_ext_ver_list(ExtensionControlFile *c
  	DIR		   *dir;
  	struct dirent *de;
  
@@ -155,7 +127,7 @@
  	location = get_extension_script_directory(control);
  	dir = AllocateDir(location);
  	while ((de = ReadDir(dir, location)) != NULL)
-@@ -3393,3 +3485,32 @@ read_whole_file(const char *filename, in
+@@ -3392,3 +3484,32 @@ read_whole_file(const char *filename, in
  	buf[*length] = '\0';
  	return buf;
  }
@@ -190,7 +162,7 @@
 +}
 --- a/src/include/utils/guc.h
 +++ b/src/include/utils/guc.h
-@@ -276,6 +276,7 @@ extern PGDLLIMPORT char *ConfigFileName;
+@@ -278,6 +278,7 @@ extern PGDLLIMPORT char *ConfigFileName;
  extern PGDLLIMPORT char *HbaFileName;
  extern PGDLLIMPORT char *IdentFileName;
  extern PGDLLIMPORT char *external_pid_file;
@@ -208,7 +180,7 @@
  #include "utils/hsearch.h"
  
  
-@@ -497,7 +498,7 @@ expand_dynamic_library_name(const char *
+@@ -432,7 +433,7 @@ expand_dynamic_library_name(const char *
  {
  	bool		have_slash;
  	char	   *new;
@@ -217,7 +189,7 @@
  
  	AssertArg(name);
  
-@@ -512,6 +513,19 @@ expand_dynamic_library_name(const char *
+@@ -447,6 +448,19 @@ expand_dynamic_library_name(const char *
  	else
  	{
  		full = substitute_libpath_macro(name);
@@ -237,7 +209,7 @@
  		if (file_exists(full))
  			return full;
  		pfree(full);
-@@ -530,6 +544,19 @@ expand_dynamic_library_name(const char *
+@@ -465,6 +479,19 @@ expand_dynamic_library_name(const char *
  	{
  		full = substitute_libpath_macro(new);
  		pfree(new);
@@ -259,7 +231,7 @@
  		pfree(full);
 --- a/src/backend/utils/misc/postgresql.conf.sample
 +++ b/src/backend/utils/misc/postgresql.conf.sample
-@@ -744,6 +744,8 @@
+@@ -741,6 +741,8 @@
  # - Other Defaults -
  
  #dynamic_library_path = '$libdir'
@@ -268,3 +240,31 @@
  #gin_fuzzy_search_limit = 0
  
  
+--- a/src/backend/utils/misc/guc_tables.c
++++ b/src/backend/utils/misc/guc_tables.c
+@@ -504,6 +504,7 @@ char	   *ConfigFileName;
+ char	   *HbaFileName;
+ char	   *IdentFileName;
+ char	   *external_pid_file;
++char	   *extension_destdir;
+ 
+ char	   *pgstat_temp_directory;
+ 
+@@ -4278,6 +4279,17 @@ struct config_string ConfigureNamesStrin
+ 	},
+ 
+ 	{
++		{"extension_destdir", PGC_SUSET, FILE_LOCATIONS,
++			gettext_noop("Path to prepend for extension loading"),
++			gettext_noop("This directory is prepended to paths when loading extensions (control and SQL files), and to the '$libdir' directive when loading modules that back functions. The location is made configurable to allow build-time testing of extensions that do not have been installed to their proper location yet."),
++			GUC_SUPERUSER_ONLY
++		},
++		&extension_destdir,
++		"",
++		NULL, NULL, NULL
++	},
++
++	{
+ 		{"ssl_library", PGC_INTERNAL, PRESET_OPTIONS,
+ 			gettext_noop("Shows the name of the SSL library."),
+ 			NULL,
