@@ -2,4 +2,4 @@
 
 # checkout into:
 # a worktree?
-git archive --remote ~/git/postgresql/ mmc13.1 | tar x
+git archive --remote ~/git/postgresql/ 15-RC2mmc | tar x
