@@ -234,6 +234,7 @@ Description: development files for PostgreSQL 16 server-side programming
 
 Package: postgresql-doc-16
 Architecture: all
+Build-Profiles: <!nodoc>
 Multi-Arch: foreign
 Section: doc
 Depends:
