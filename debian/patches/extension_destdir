@@ -137,7 +137,7 @@
 +{
 +	struct stat st;
 +
-+	AssertArg(name != NULL);
++	Assert(name != NULL);
 +
 +	if (stat(name, &st) == 0)
 +		return S_ISDIR(st.st_mode) ? false : true;
@@ -162,7 +162,7 @@
 +}
 --- a/src/include/utils/guc.h
 +++ b/src/include/utils/guc.h
-@@ -278,6 +278,7 @@ extern PGDLLIMPORT char *ConfigFileName;
+@@ -274,6 +274,7 @@ extern PGDLLIMPORT char *ConfigFileName;
  extern PGDLLIMPORT char *HbaFileName;
  extern PGDLLIMPORT char *IdentFileName;
  extern PGDLLIMPORT char *external_pid_file;
@@ -187,7 +187,7 @@
 -	char	   *full;
 +	char	   *full, *full2;
  
- 	AssertArg(name);
+ 	Assert(name);
  
 @@ -447,6 +448,19 @@ expand_dynamic_library_name(const char *
  	else
@@ -231,7 +231,7 @@
  		pfree(full);
 --- a/src/backend/utils/misc/postgresql.conf.sample
 +++ b/src/backend/utils/misc/postgresql.conf.sample
-@@ -741,6 +741,8 @@
+@@ -740,6 +740,8 @@
  # - Other Defaults -
  
  #dynamic_library_path = '$libdir'
@@ -250,7 +250,7 @@
  
  char	   *pgstat_temp_directory;
  
-@@ -4278,6 +4279,17 @@ struct config_string ConfigureNamesStrin
+@@ -4266,6 +4267,17 @@ struct config_string ConfigureNamesStrin
  	},
  
  	{
