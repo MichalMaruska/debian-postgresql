@@ -1,3 +1,9 @@
+postgresql-14 (14.5-1-maruska1) unstable; urgency=medium
+
+  * Use 14.5.1-mmc
+
+ -- Michal Maruska <mmaruska@gmail.com>  Sun, 06 Nov 2022 23:08:16 +0100
+
 postgresql-14 (14.5-1-maruska) unstable; urgency=medium
 
   * use 14.5-mmc
