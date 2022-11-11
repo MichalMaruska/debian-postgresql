@@ -1,4 +1,4 @@
-Source: postgresql-14
+Source: postgresql-15
 Section: database
 Priority: optional
 Maintainer: Debian PostgreSQL Maintainers <team+postgresql@tracker.debian.org>
