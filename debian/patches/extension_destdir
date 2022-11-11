@@ -1,6 +1,8 @@
---- a/src/backend/utils/misc/guc.c
-+++ b/src/backend/utils/misc/guc.c
-@@ -599,6 +599,7 @@ char	   *ConfigFileName;
+Index: postgresql-15-15.1/src/backend/utils/misc/guc.c
+===================================================================
+--- postgresql-15-15.1.orig/src/backend/utils/misc/guc.c
++++ postgresql-15-15.1/src/backend/utils/misc/guc.c
+@@ -655,6 +655,7 @@ char	   *ConfigFileName;
  char	   *HbaFileName;
  char	   *IdentFileName;
  char	   *external_pid_file;
@@ -8,7 +10,7 @@
  
  char	   *pgstat_temp_directory;
  
-@@ -4384,6 +4385,17 @@ static struct config_string ConfigureNam
+@@ -4519,6 +4520,17 @@ static struct config_string ConfigureNam
  	},
  
  	{
@@ -26,8 +28,10 @@
  		{"ssl_library", PGC_INTERNAL, PRESET_OPTIONS,
  			gettext_noop("Shows the name of the SSL library."),
  			NULL,
---- a/src/backend/commands/extension.c
-+++ b/src/backend/commands/extension.c
+Index: postgresql-15-15.1/src/backend/commands/extension.c
+===================================================================
+--- postgresql-15-15.1.orig/src/backend/commands/extension.c
++++ postgresql-15-15.1/src/backend/commands/extension.c
 @@ -128,6 +128,8 @@ static void ApplyExtensionUpdates(Oid ex
  								  bool cascade,
  								  bool is_create);
@@ -95,7 +99,7 @@
  	if (from_version)
  		snprintf(result, MAXPGPATH, "%s/%s--%s--%s.sql",
  				 scriptdir, control->name, from_version, version);
-@@ -1122,6 +1161,59 @@ get_ext_ver_list(ExtensionControlFile *c
+@@ -1137,6 +1176,59 @@ get_ext_ver_list(ExtensionControlFile *c
  	DIR		   *dir;
  	struct dirent *de;
  
@@ -155,7 +159,7 @@
  	location = get_extension_script_directory(control);
  	dir = AllocateDir(location);
  	while ((de = ReadDir(dir, location)) != NULL)
-@@ -3470,3 +3562,32 @@ read_whole_file(const char *filename, in
+@@ -3397,3 +3489,32 @@ read_whole_file(const char *filename, in
  	buf[*length] = '\0';
  	return buf;
  }
@@ -188,18 +192,22 @@
 +		return true;
 +	return false;
 +}
---- a/src/include/utils/guc.h
-+++ b/src/include/utils/guc.h
-@@ -270,6 +270,7 @@ extern PGDLLIMPORT char *ConfigFileName;
- extern char *HbaFileName;
- extern char *IdentFileName;
- extern char *external_pid_file;
-+extern char *extension_destdir;
+Index: postgresql-15-15.1/src/include/utils/guc.h
+===================================================================
+--- postgresql-15-15.1.orig/src/include/utils/guc.h
++++ postgresql-15-15.1/src/include/utils/guc.h
+@@ -280,6 +280,7 @@ extern PGDLLIMPORT char *ConfigFileName;
+ extern PGDLLIMPORT char *HbaFileName;
+ extern PGDLLIMPORT char *IdentFileName;
+ extern PGDLLIMPORT char *external_pid_file;
++extern PGDLLIMPORT char *extension_destdir;
  
  extern PGDLLIMPORT char *application_name;
  
---- a/src/backend/utils/fmgr/dfmgr.c
-+++ b/src/backend/utils/fmgr/dfmgr.c
+Index: postgresql-15-15.1/src/backend/utils/fmgr/dfmgr.c
+===================================================================
+--- postgresql-15-15.1.orig/src/backend/utils/fmgr/dfmgr.c
++++ postgresql-15-15.1/src/backend/utils/fmgr/dfmgr.c
 @@ -34,6 +34,7 @@
  #include "lib/stringinfo.h"
  #include "miscadmin.h"
@@ -208,7 +216,7 @@
  #include "utils/hsearch.h"
  
  
-@@ -487,7 +488,7 @@ expand_dynamic_library_name(const char *
+@@ -432,7 +433,7 @@ expand_dynamic_library_name(const char *
  {
  	bool		have_slash;
  	char	   *new;
@@ -217,7 +225,7 @@
  
  	AssertArg(name);
  
-@@ -502,6 +503,19 @@ expand_dynamic_library_name(const char *
+@@ -447,6 +448,19 @@ expand_dynamic_library_name(const char *
  	else
  	{
  		full = substitute_libpath_macro(name);
@@ -237,7 +245,7 @@
  		if (file_exists(full))
  			return full;
  		pfree(full);
-@@ -520,6 +534,19 @@ expand_dynamic_library_name(const char *
+@@ -465,6 +479,19 @@ expand_dynamic_library_name(const char *
  	{
  		full = substitute_libpath_macro(new);
  		pfree(new);
@@ -257,9 +265,11 @@
  		if (file_exists(full))
  			return full;
  		pfree(full);
---- a/src/backend/utils/misc/postgresql.conf.sample
-+++ b/src/backend/utils/misc/postgresql.conf.sample
-@@ -725,6 +725,8 @@
+Index: postgresql-15-15.1/src/backend/utils/misc/postgresql.conf.sample
+===================================================================
+--- postgresql-15-15.1.orig/src/backend/utils/misc/postgresql.conf.sample
++++ postgresql-15-15.1/src/backend/utils/misc/postgresql.conf.sample
+@@ -743,6 +743,8 @@
  # - Other Defaults -
  
  #dynamic_library_path = '$libdir'

@@ -11,8 +11,10 @@ the build path from -fdebug-prefix-map and -ffile-prefix-map in CFLAGS.
   CFLAGS to COPT where Makefile.global picks them up, using the prefix maps
   from dpkg-buildflags.
 
---- a/src/common/Makefile
-+++ b/src/common/Makefile
+Index: postgresql-15-15.1/src/common/Makefile
+===================================================================
+--- postgresql-15-15.1.orig/src/common/Makefile
++++ postgresql-15-15.1/src/common/Makefile
 @@ -33,7 +33,7 @@ STD_CPPFLAGS := $(filter-out -I$(top_src
  STD_LDFLAGS := $(filter-out -L$(top_builddir)/src/common -L$(top_builddir)/src/port,$(LDFLAGS))
  override CPPFLAGS += -DVAL_CC="\"$(CC)\""
@@ -22,9 +24,11 @@ the build path from -fdebug-prefix-map and -ffile-prefix-map in CFLAGS.
  override CPPFLAGS += -DVAL_CFLAGS_SL="\"$(CFLAGS_SL)\""
  override CPPFLAGS += -DVAL_LDFLAGS="\"$(STD_LDFLAGS)\""
  override CPPFLAGS += -DVAL_LDFLAGS_EX="\"$(LDFLAGS_EX)\""
---- a/configure.ac
-+++ b/configure.ac
-@@ -27,6 +27,7 @@ AC_COPYRIGHT([Copyright (c) 1996-2020, P
+Index: postgresql-15-15.1/configure.ac
+===================================================================
+--- postgresql-15-15.1.orig/configure.ac
++++ postgresql-15-15.1/configure.ac
+@@ -27,6 +27,7 @@ AC_COPYRIGHT([Copyright (c) 1996-2022, P
  AC_CONFIG_SRCDIR([src/backend/access/common/heaptuple.c])
  AC_CONFIG_AUX_DIR(config)
  AC_PREFIX_DEFAULT(/usr/local/pgsql)
@@ -32,9 +36,11 @@ the build path from -fdebug-prefix-map and -ffile-prefix-map in CFLAGS.
  AC_DEFINE_UNQUOTED(CONFIGURE_ARGS, ["$ac_configure_args"], [Saved arguments from configure])
  
  [PG_MAJORVERSION=`expr "$PACKAGE_VERSION" : '\([0-9][0-9]*\)'`]
---- a/configure
-+++ b/configure
-@@ -2796,6 +2796,7 @@ ac_config_sub="$SHELL $ac_aux_dir/config
+Index: postgresql-15-15.1/configure
+===================================================================
+--- postgresql-15-15.1.orig/configure
++++ postgresql-15-15.1/configure
+@@ -2825,6 +2825,7 @@ ac_config_sub="$SHELL $ac_aux_dir/config
  ac_configure="$SHELL $ac_aux_dir/configure"  # Please don't use this var.
  
  

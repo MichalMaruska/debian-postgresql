@@ -2,8 +2,10 @@ Author: Martin Pitt <mpitt@debian.org>
 Description: Update tutorial README for required build dependencies.
 Forwarded: No, Debian specific
 
---- a/src/tutorial/README
-+++ b/src/tutorial/README
+Index: postgresql-15-15.1/src/tutorial/README
+===================================================================
+--- postgresql-15-15.1.orig/src/tutorial/README
++++ postgresql-15-15.1/src/tutorial/README
 @@ -6,8 +6,7 @@ tutorial
  This directory contains SQL tutorial scripts.  To look at them, first do a
  	% make

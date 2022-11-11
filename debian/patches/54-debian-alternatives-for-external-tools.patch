@@ -2,8 +2,10 @@ Author: Martin Pitt <mpitt@debian.org>
 Description: Use Debian alternatives for external tools instead of hardcoded programs
 Forwarded: No, Debian specific
 
---- a/src/bin/psql/settings.h
-+++ b/src/bin/psql/settings.h
+Index: postgresql-15-15.1/src/bin/psql/settings.h
+===================================================================
+--- postgresql-15-15.1.orig/src/bin/psql/settings.h
++++ postgresql-15-15.1/src/bin/psql/settings.h
 @@ -19,8 +19,8 @@
  #define DEFAULT_EDITOR	"notepad.exe"
  /* no DEFAULT_EDITOR_LINENUMBER_ARG for Notepad */
@@ -15,8 +17,10 @@ Forwarded: No, Debian specific
  #endif
  
  #define DEFAULT_PROMPT1 "%/%R%x%# "
---- a/src/include/fe_utils/print.h
-+++ b/src/include/fe_utils/print.h
+Index: postgresql-15-15.1/src/include/fe_utils/print.h
+===================================================================
+--- postgresql-15-15.1.orig/src/include/fe_utils/print.h
++++ postgresql-15-15.1/src/include/fe_utils/print.h
 @@ -20,7 +20,7 @@
  
  /* This is not a particularly great place for this ... */

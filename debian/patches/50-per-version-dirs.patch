@@ -10,8 +10,10 @@ Forwarded: No, Debian specific packaging with postgresql-common
 
 Bug-Debian: http://bugs.debian.org/462037
 
---- a/src/Makefile.global.in
-+++ b/src/Makefile.global.in
+Index: postgresql-15-15.1/src/Makefile.global.in
+===================================================================
+--- postgresql-15-15.1.orig/src/Makefile.global.in
++++ postgresql-15-15.1/src/Makefile.global.in
 @@ -119,7 +119,7 @@ libdir := @libdir@
  pkglibdir = $(libdir)
  ifeq "$(findstring pgsql, $(pkglibdir))" ""
@@ -30,8 +32,10 @@ Bug-Debian: http://bugs.debian.org/462037
  includedir_internal = $(pkgincludedir)/internal
  pgxsdir = $(pkglibdir)/pgxs
  bitcodedir = $(pkglibdir)/bitcode
---- a/src/bin/pg_config/pg_config.c
-+++ b/src/bin/pg_config/pg_config.c
+Index: postgresql-15-15.1/src/bin/pg_config/pg_config.c
+===================================================================
+--- postgresql-15-15.1.orig/src/bin/pg_config/pg_config.c
++++ postgresql-15-15.1/src/bin/pg_config/pg_config.c
 @@ -27,6 +27,8 @@
  #include "common/config_info.h"
  #include "port.h"
@@ -54,16 +58,3 @@ Bug-Debian: http://bugs.debian.org/462037
  
  	configdata = get_configdata(my_exec_path, &configdata_len);
  	/* no arguments -> print everything */
---- a/src/test/perl/TestLib.pm
-+++ b/src/test/perl/TestLib.pm
-@@ -591,6 +591,10 @@ sub check_pg_config
- 	  or die "could not execute pg_config";
- 	chomp($stdout);
- 	$stdout =~ s/\r$//;
-+	# Debian's pg_config is not relocatable, manually check for correct location
-+	if (-d "../../../build/tmp_install/usr/include/postgresql") {
-+		$stdout = "../../../build/tmp_install/usr/include/postgresql";
-+	}
- 
- 	open my $pg_config_h, '<', "$stdout/pg_config.h" or die "$!";
- 	my $match = (grep { /^$regexp/ } <$pg_config_h>);

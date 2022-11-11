@@ -8,9 +8,11 @@ https://www.postgresql.org/message-id/flat/1635221042457.21654%40amazon.com
 
 This patch can be removed once focal is EOL.
 
---- a/configure.ac
-+++ b/configure.ac
-@@ -538,6 +538,10 @@ if test "$GCC" = yes -a "$ICC" = no; the
+Index: postgresql-15-15.1/configure.ac
+===================================================================
+--- postgresql-15-15.1.orig/configure.ac
++++ postgresql-15-15.1/configure.ac
+@@ -560,6 +560,10 @@ if test "$GCC" = yes -a "$ICC" = no; the
    if test -n "$NOT_THE_CFLAGS"; then
      CFLAGS="$CFLAGS -Wno-stringop-truncation"
    fi
