@@ -59,7 +59,7 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Suggests:
- postgresql-doc-14,
+ postgresql-doc-15,
 Description: header files for libpq5 (PostgreSQL library)
  Header files and static library for compiling C programs to link
  with the libpq library in order to communicate with a PostgreSQL
@@ -152,19 +152,19 @@ Description: shared library libpgtypes for PostgreSQL 14
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-14
+Package: postgresql-15
 Architecture: any
 Depends:
  locales | locales-all,
- postgresql-client-14,
+ postgresql-client-15,
  postgresql-common (>= 229~),
  ssl-cert,
  tzdata,
  ${misc:Depends},
  ${shlibs:Depends},
 Provides:
- postgresql-contrib-14,
- postgresql-14-jit-llvm (= ${llvm:Version}) [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !s390x !sh4 !sparc64 !x32],
+ postgresql-contrib-15,
+ postgresql-15-jit-llvm (= ${llvm:Version}) [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !s390x !sh4 !sparc64 !x32],
 Recommends:
  sysstat,
 Description: The World's Most Advanced Open Source Relational Database
@@ -179,7 +179,7 @@ Description: The World's Most Advanced Open Source Relational Database
  This package provides the database server for PostgreSQL 14.${cassert}
 XB-Postgresql-Catversion: ${postgresql:Catversion}
 
-Package: postgresql-client-14
+Package: postgresql-client-15
 Architecture: any
 Multi-Arch: foreign
 Depends:
@@ -189,8 +189,8 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Suggests:
- postgresql-14,
- postgresql-doc-14,
+ postgresql-15,
+ postgresql-doc-15,
 Provides:
  postgresql-client,
 Description: front-end programs for PostgreSQL 14
@@ -200,20 +200,20 @@ Description: front-end programs for PostgreSQL 14
  .
  This is the client package for PostgreSQL 14. If you install
  PostgreSQL 14 on a standalone machine, you need the server package
- postgresql-14, too. On a network, you can install this package on
+ postgresql-15, too. On a network, you can install this package on
  many client machines, while the server package may be installed on
  only one machine.
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-server-dev-14
+Package: postgresql-server-dev-15
 Architecture: any
 Section: libdevel
 Depends:
  clang-${llvm:Version} [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !s390x !sh4 !sparc64 !x32],
  libpq-dev (>= 14~~),
  llvm-${llvm:Version}-dev [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !s390x !sh4 !sparc64 !x32],
- postgresql-client-14,
+ postgresql-client-15,
  postgresql-common (>= 142~),
  ${misc:Depends},
  ${shlibs:Depends},
@@ -229,7 +229,7 @@ Description: development files for PostgreSQL 14 server-side programming
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-doc-14
+Package: postgresql-doc-15
 Architecture: all
 Multi-Arch: foreign
 Section: doc
@@ -243,11 +243,11 @@ Description: documentation for the PostgreSQL database management system
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-plperl-14
+Package: postgresql-plperl-15
 Architecture: any
 Depends:
  perl,
- postgresql-14 (= ${binary:Version}),
+ postgresql-15 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends},
 Provides:
@@ -259,10 +259,10 @@ Description: PL/Perl procedural language for PostgreSQL 14
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-plpython3-14
+Package: postgresql-plpython3-15
 Architecture: any
 Depends:
- postgresql-14 (= ${binary:Version}),
+ postgresql-15 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends},
 Provides:
@@ -274,10 +274,10 @@ Description: PL/Python 3 procedural language for PostgreSQL 14
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-pltcl-14
+Package: postgresql-pltcl-15
 Architecture: any
 Depends:
- postgresql-14 (= ${binary:Version}),
+ postgresql-15 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends},
 Provides:
