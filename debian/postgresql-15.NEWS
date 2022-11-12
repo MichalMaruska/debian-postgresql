@@ -1,6 +1,6 @@
-postgresql-14 (14.4-1) unstable; urgency=medium
+postgresql-15 (15.1) unstable; urgency=medium
 
-  If [RE]INDEX with the CONCURRENTLY option was used on any PostgreSQL 14
+  If [RE]INDEX with the CONCURRENTLY option was used on any PostgreSQL 15
   database, it is recommended to rebuild the indexes. See the changelog for
   more details.
 
