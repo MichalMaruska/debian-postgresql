@@ -14,7 +14,6 @@ usr/lib/postgresql/*/bin/pg_test_timing
 usr/lib/postgresql/*/bin/pg_upgrade
 usr/lib/postgresql/*/bin/pg_waldump
 usr/lib/postgresql/*/bin/postgres
-usr/lib/postgresql/*/bin/postmaster
 usr/lib/postgresql/*/bin/vacuumlo
 [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !s390x !sh4 !sparc64 !x32] usr/lib/postgresql/*/lib/bitcode
 [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !s390x !sh4 !sparc64 !x32] usr/lib/postgresql/*/lib/llvmjit_types.bc
@@ -49,7 +48,6 @@ usr/share/postgresql/*/man/man1/pg_test_timing.1*
 usr/share/postgresql/*/man/man1/pg_upgrade.1*
 usr/share/postgresql/*/man/man1/pg_waldump.1*
 usr/share/postgresql/*/man/man1/postgres.1*
-usr/share/postgresql/*/man/man1/postmaster.1*
 usr/share/postgresql/*/man/man1/vacuumlo.1*
 usr/share/postgresql/*/timezonesets/*
 usr/share/postgresql/*/tsearch_data
