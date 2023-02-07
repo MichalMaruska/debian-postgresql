@@ -1,3 +1,22 @@
+postgresql-15 (15.2-1) unstable; urgency=medium
+
+  * New upstream version.
+
+    + libpq can leak memory contents after GSSAPI transport encryption
+      initiation fails (Jacob Champion)
+
+      A modified server, or an unauthenticated man-in-the-middle, can send a
+      not-zero-terminated error message during setup of GSSAPI (Kerberos)
+      transport encryption.  libpq will then copy that string, as well as
+      following bytes in application memory up to the next zero byte, to its
+      error report. Depending on what the calling application does with the
+      error report, this could result in disclosure of application memory
+      contents.  There is also a small probability of a crash due to reading
+      beyond the end of memory.  Fix by properly zero-terminating the server
+      message. (CVE-2022-41862)
+
+ -- Christoph Berg <myon@debian.org>  Tue, 07 Feb 2023 14:57:10 +0100
+
 postgresql-15 (15.1-1) unstable; urgency=medium
 
   * New upstream version.
