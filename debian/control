@@ -160,7 +160,7 @@ Architecture: any
 Depends:
  locales | locales-all,
  postgresql-client-16,
- postgresql-common (>= 241~),
+ postgresql-common (>= 248~),
  ssl-cert,
  tzdata,
  ${misc:Depends},
