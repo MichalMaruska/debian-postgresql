@@ -2,7 +2,7 @@
 
 # checkout into:
 # a worktree?
-git archive --remote ~/git/postgresql/ 15-RC2mmc | tar x
+git archive --remote ~/git/postgresql/ 15.2-mmc | tar x
 
 # so I should apply the patches too!
 QUILT_PATCHES=debian/patches quilt push -a
