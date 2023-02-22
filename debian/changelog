@@ -1,3 +1,14 @@
+postgresql-15 (15.2-1-maruska) unstable; urgency=medium
+
+  * auto: introduce my way of checking out the sources: from mmc13.1
+  * Add my Symbols to the list -- in the library!
+  * use 15_RC2 from the sources.
+  * Refresh the diffs of debian patches which clash with my modifications.
+  * apply the patch by quilt
+  * Use 15.2-mmc
+
+ -- Michal Maruska <mmaruska@gmail.com>  Wed, 22 Feb 2023 22:39:22 +0100
+
 postgresql-15 (15.2-1) unstable; urgency=medium
 
   * New upstream version.
