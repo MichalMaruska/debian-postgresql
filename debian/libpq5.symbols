@@ -14,6 +14,7 @@ libpq.so.5 libpq5 #MINVER#
  PQconnectdb@Base 0
  PQconnectdbParams@Base 9.0~
  PQconnectionNeedsPassword@Base 8.3~rc1-1~
+ PQconnectionUsedGSSAPI@Base 16~~
  PQconnectionUsedPassword@Base 8.3~
  PQconninfo@Base 9.3~
  PQconninfoFree@Base 0
