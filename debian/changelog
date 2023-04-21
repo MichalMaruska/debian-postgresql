@@ -1,3 +1,9 @@
+postgresql-15 (15.2-3) UNRELEASED; urgency=medium
+
+  * Reenable JIT on s390x using workaround patch from SUSE.
+
+ -- Christoph Berg <myon@debian.org>  Fri, 21 Apr 2023 21:03:38 +0200
+
 postgresql-15 (15.2-2) unstable; urgency=medium
 
   * Add Romanian debconf translation, mulțumesc Remus-Gabriel Chelu!
