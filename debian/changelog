@@ -1,8 +1,29 @@
-postgresql-15 (15.2-3) UNRELEASED; urgency=medium
+postgresql-15 (15.3-1) experimental; urgency=medium
+
+  * New upstream version.
+
+    + Prevent CREATE SCHEMA from defeating changes in search_path
+      (Report and fix by Alexander Lakhin, CVE-2023-2454)
+
+      Within a CREATE SCHEMA command, objects in the prevailing search_path,
+      as well as those in the newly-created schema, would be visible even
+      within a called function or script that attempted to set a secure
+      search_path.  This could allow any user having permission to create a
+      schema to hijack the privileges of a security definer function or
+      extension script.
+
+    + Enforce row-level security policies correctly after inlining a
+      set-returning function (Report by Wolfgang Walther, CVE-2023-2455)
+
+      If a set-returning SQL-language function refers to a table having
+      row-level security policies, and it can be inlined into a calling query,
+      those RLS policies would not get enforced properly in some cases
+      involving re-using a cached plan under a different role. This could
+      allow a user to see or modify rows that should have been invisible.
 
   * Reenable JIT on s390x using workaround patch from SUSE.
 
- -- Christoph Berg <myon@debian.org>  Fri, 21 Apr 2023 21:03:38 +0200
+ -- Christoph Berg <myon@debian.org>  Tue, 09 May 2023 19:05:02 +0200
 
 postgresql-15 (15.2-2) unstable; urgency=medium
 
