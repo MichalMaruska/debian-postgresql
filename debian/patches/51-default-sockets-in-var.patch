@@ -9,7 +9,7 @@ set it as default.
 
 --- a/src/include/pg_config_manual.h
 +++ b/src/include/pg_config_manual.h
-@@ -201,7 +201,7 @@
+@@ -206,7 +206,7 @@
   * support them yet.
   */
  #ifndef WIN32

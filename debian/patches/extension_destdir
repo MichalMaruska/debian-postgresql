@@ -1,6 +1,6 @@
 --- a/src/backend/commands/extension.c
 +++ b/src/backend/commands/extension.c
-@@ -128,6 +128,8 @@ static void ApplyExtensionUpdates(Oid ex
+@@ -132,6 +132,8 @@ static void ApplyExtensionUpdates(Oid ex
  								  bool cascade,
  								  bool is_create);
  static char *read_whole_file(const char *filename, int *length);
@@ -9,7 +9,7 @@
  
  
  /*
-@@ -388,6 +390,16 @@ get_extension_control_filename(const cha
+@@ -392,6 +394,16 @@ get_extension_control_filename(const cha
  
  	get_share_path(my_exec_path, sharepath);
  	result = (char *) palloc(MAXPGPATH);
@@ -26,7 +26,7 @@
  	snprintf(result, MAXPGPATH, "%s/extension/%s.control",
  			 sharepath, extname);
  
-@@ -427,6 +439,16 @@ get_extension_aux_control_filename(Exten
+@@ -431,6 +443,16 @@ get_extension_aux_control_filename(Exten
  	scriptdir = get_extension_script_directory(control);
  
  	result = (char *) palloc(MAXPGPATH);
@@ -43,7 +43,7 @@
  	snprintf(result, MAXPGPATH, "%s/%s--%s.control",
  			 scriptdir, control->name, version);
  
-@@ -445,6 +467,23 @@ get_extension_script_filename(ExtensionC
+@@ -449,6 +471,23 @@ get_extension_script_filename(ExtensionC
  	scriptdir = get_extension_script_directory(control);
  
  	result = (char *) palloc(MAXPGPATH);
@@ -67,7 +67,7 @@
  	if (from_version)
  		snprintf(result, MAXPGPATH, "%s/%s--%s--%s.sql",
  				 scriptdir, control->name, from_version, version);
-@@ -1142,6 +1181,59 @@ get_ext_ver_list(ExtensionControlFile *c
+@@ -1186,6 +1225,59 @@ get_ext_ver_list(ExtensionControlFile *c
  	DIR		   *dir;
  	struct dirent *de;
  
@@ -127,7 +127,7 @@
  	location = get_extension_script_directory(control);
  	dir = AllocateDir(location);
  	while ((de = ReadDir(dir, location)) != NULL)
-@@ -3392,3 +3484,32 @@ read_whole_file(const char *filename, in
+@@ -3470,3 +3562,32 @@ read_whole_file(const char *filename, in
  	buf[*length] = '\0';
  	return buf;
  }
@@ -231,7 +231,7 @@
  		pfree(full);
 --- a/src/backend/utils/misc/postgresql.conf.sample
 +++ b/src/backend/utils/misc/postgresql.conf.sample
-@@ -740,6 +740,8 @@
+@@ -750,6 +750,8 @@
  # - Other Defaults -
  
  #dynamic_library_path = '$libdir'
@@ -242,7 +242,7 @@
  
 --- a/src/backend/utils/misc/guc_tables.c
 +++ b/src/backend/utils/misc/guc_tables.c
-@@ -504,6 +504,7 @@ char	   *ConfigFileName;
+@@ -529,6 +529,7 @@ char	   *ConfigFileName;
  char	   *HbaFileName;
  char	   *IdentFileName;
  char	   *external_pid_file;
@@ -250,7 +250,7 @@
  
  char	   *pgstat_temp_directory;
  
-@@ -4266,6 +4267,17 @@ struct config_string ConfigureNamesStrin
+@@ -4375,6 +4376,17 @@ struct config_string ConfigureNamesStrin
  	},
  
  	{

@@ -24,7 +24,7 @@ the build path from -fdebug-prefix-map and -ffile-prefix-map in CFLAGS.
  override CPPFLAGS += -DVAL_LDFLAGS_EX="\"$(LDFLAGS_EX)\""
 --- a/configure.ac
 +++ b/configure.ac
-@@ -27,6 +27,7 @@ AC_COPYRIGHT([Copyright (c) 1996-2020, P
+@@ -27,6 +27,7 @@ AC_COPYRIGHT([Copyright (c) 1996-2023, P
  AC_CONFIG_SRCDIR([src/backend/access/common/heaptuple.c])
  AC_CONFIG_AUX_DIR(config)
  AC_PREFIX_DEFAULT(/usr/local/pgsql)
@@ -34,7 +34,7 @@ the build path from -fdebug-prefix-map and -ffile-prefix-map in CFLAGS.
  [PG_MAJORVERSION=`expr "$PACKAGE_VERSION" : '\([0-9][0-9]*\)'`]
 --- a/configure
 +++ b/configure
-@@ -2796,6 +2796,7 @@ ac_config_sub="$SHELL $ac_aux_dir/config
+@@ -2822,6 +2822,7 @@ ac_config_sub="$SHELL $ac_aux_dir/config
  ac_configure="$SHELL $ac_aux_dir/configure"  # Please don't use this var.
  
  
