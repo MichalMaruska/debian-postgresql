@@ -1,3 +1,9 @@
+postgresql-16 (16~beta1-2) UNRELEASED; urgency=medium
+
+  * Define IOV_MAX on hurd-i386.
+
+ -- Christoph Berg <myon@debian.org>  Wed, 24 May 2023 11:10:24 +0200
+
 postgresql-16 (16~beta1-1) experimental; urgency=medium
 
   * New major upstream version 16; packaging based on postgresql-15.
