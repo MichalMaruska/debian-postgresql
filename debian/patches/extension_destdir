@@ -242,15 +242,15 @@
  
 --- a/src/backend/utils/misc/guc_tables.c
 +++ b/src/backend/utils/misc/guc_tables.c
-@@ -529,6 +529,7 @@ char	   *ConfigFileName;
+@@ -528,6 +528,7 @@ char	   *ConfigFileName;
  char	   *HbaFileName;
  char	   *IdentFileName;
  char	   *external_pid_file;
 +char	   *extension_destdir;
  
- char	   *pgstat_temp_directory;
+ char	   *application_name;
  
-@@ -4375,6 +4376,17 @@ struct config_string ConfigureNamesStrin
+@@ -4346,6 +4347,17 @@ struct config_string ConfigureNamesStrin
  	},
  
  	{
