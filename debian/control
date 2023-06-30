@@ -1,4 +1,4 @@
-Source: postgresql-16
+Source: postgresql-17
 Section: database
 Priority: optional
 Maintainer: Debian PostgreSQL Maintainers <team+postgresql@tracker.debian.org>
@@ -51,7 +51,7 @@ Build-Depends:
  zstd (>= 1.4.0) <!pkg.postgresql.nozstd>,
 Homepage: http://www.postgresql.org/
 Vcs-Browser: https://salsa.debian.org/postgresql/postgresql
-Vcs-Git: https://salsa.debian.org/postgresql/postgresql.git -b 16
+Vcs-Git: https://salsa.debian.org/postgresql/postgresql.git -b 17
 
 Package: libpq-dev
 Architecture: any
@@ -62,7 +62,7 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Suggests:
- postgresql-doc-16,
+ postgresql-doc-17,
 Description: header files for libpq5 (PostgreSQL library)
  Header files and static library for compiling C programs to link
  with the libpq library in order to communicate with a PostgreSQL
@@ -149,25 +149,25 @@ Depends:
 Pre-Depends:
  ${misc:Pre-Depends},
 Multi-Arch: same
-Description: shared library libpgtypes for PostgreSQL 16
+Description: shared library libpgtypes for PostgreSQL 17
  The libpgtypes shared library is used by programs built with ecpg.
  (Embedded PostgreSQL for C).
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-16
+Package: postgresql-17
 Architecture: any
 Depends:
  locales | locales-all,
- postgresql-client-16,
+ postgresql-client-17,
  postgresql-common (>= 248~),
  ssl-cert,
  tzdata,
  ${misc:Depends},
  ${shlibs:Depends},
 Provides:
- postgresql-contrib-16,
- postgresql-16-jit-llvm (= ${llvm:Version}) [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32],
+ postgresql-contrib-17,
+ postgresql-17-jit-llvm (= ${llvm:Version}) [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32],
 Recommends:
  sysstat,
 Breaks:
@@ -181,10 +181,10 @@ Description: The World's Most Advanced Open Source Relational Database
  a range of workloads, from single machines to data warehouses or Web services
  with many concurrent users.
  .
- This package provides the database server for PostgreSQL 16.${cassert}
+ This package provides the database server for PostgreSQL 17.${cassert}
 XB-Postgresql-Catversion: ${postgresql:Catversion}
 
-Package: postgresql-client-16
+Package: postgresql-client-17
 Architecture: any
 Multi-Arch: foreign
 Depends:
@@ -194,35 +194,35 @@ Depends:
  ${misc:Depends},
  ${shlibs:Depends},
 Suggests:
- postgresql-16,
- postgresql-doc-16,
+ postgresql-17,
+ postgresql-doc-17,
 Provides:
  postgresql-client,
-Description: front-end programs for PostgreSQL 16
+Description: front-end programs for PostgreSQL 17
  This package contains client and administrative programs for
  PostgreSQL: these are the interactive terminal client psql and
  programs for creating and removing users and databases.
  .
- This is the client package for PostgreSQL 16. If you install
- PostgreSQL 16 on a standalone machine, you need the server package
- postgresql-16, too. On a network, you can install this package on
+ This is the client package for PostgreSQL 17. If you install
+ PostgreSQL 17 on a standalone machine, you need the server package
+ postgresql-17, too. On a network, you can install this package on
  many client machines, while the server package may be installed on
  only one machine.
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-server-dev-16
+Package: postgresql-server-dev-17
 Architecture: any
 Section: libdevel
 Depends:
  clang-${llvm:Version} [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32],
- libpq-dev (>= 16~~),
+ libpq-dev (>= 17~~),
  llvm-${llvm:Version}-dev [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32],
- postgresql-client-16,
+ postgresql-client-17,
  postgresql-common (>= 142~),
  ${misc:Depends},
  ${shlibs:Depends},
-Description: development files for PostgreSQL 16 server-side programming
+Description: development files for PostgreSQL 17 server-side programming
  Header files for compiling SSI code to link into PostgreSQL's backend; for
  example, for C functions to be called from SQL.
  .
@@ -232,7 +232,7 @@ Description: development files for PostgreSQL 16 server-side programming
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-doc-16
+Package: postgresql-doc-17
 Architecture: all
 Build-Profiles: <!nodoc>
 Multi-Arch: foreign
@@ -241,52 +241,52 @@ Depends:
  ${misc:Depends},
 Description: documentation for the PostgreSQL database management system
  This package contains all README files, user manual, and examples for
- PostgreSQL 16. The manual is in HTML format.
+ PostgreSQL 17. The manual is in HTML format.
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-plperl-16
+Package: postgresql-plperl-17
 Architecture: any
 Depends:
  perl,
- postgresql-16 (= ${binary:Version}),
+ postgresql-17 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends},
 Provides:
  postgresql-plperl,
-Description: PL/Perl procedural language for PostgreSQL 16
+Description: PL/Perl procedural language for PostgreSQL 17
  PL/Perl enables an SQL developer to write procedural language functions
- for PostgreSQL 16 in Perl.  You need this package if you have any
- PostgreSQL 16 functions that use the languages plperl or plperlu.
+ for PostgreSQL 17 in Perl.  You need this package if you have any
+ PostgreSQL 17 functions that use the languages plperl or plperlu.
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-plpython3-16
+Package: postgresql-plpython3-17
 Architecture: any
 Depends:
- postgresql-16 (= ${binary:Version}),
+ postgresql-17 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends},
 Provides:
  postgresql-plpython3,
-Description: PL/Python 3 procedural language for PostgreSQL 16
+Description: PL/Python 3 procedural language for PostgreSQL 17
  PL/Python 3 enables an SQL developer to write procedural language functions
- for PostgreSQL 16 in Python 3.  You need this package if you have any
- PostgreSQL 16 functions that use the languages plpython3 or plpython3u.
+ for PostgreSQL 17 in Python 3.  You need this package if you have any
+ PostgreSQL 17 functions that use the languages plpython3 or plpython3u.
  .
  PostgreSQL is an object-relational SQL database management system.
 
-Package: postgresql-pltcl-16
+Package: postgresql-pltcl-17
 Architecture: any
 Depends:
- postgresql-16 (= ${binary:Version}),
+ postgresql-17 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends},
 Provides:
  postgresql-pltcl,
-Description: PL/Tcl procedural language for PostgreSQL 16
+Description: PL/Tcl procedural language for PostgreSQL 17
  PL/Tcl enables an SQL developer to write procedural language functions
- for PostgreSQL 16 in Tcl.  You need this package if you have any
- PostgreSQL 16 functions that use the languages pltcl or pltclu.
+ for PostgreSQL 17 in Tcl.  You need this package if you have any
+ PostgreSQL 17 functions that use the languages pltcl or pltclu.
  .
  PostgreSQL is an object-relational SQL database management system.
