@@ -5,6 +5,8 @@ libpq.so.5 libpq5 #MINVER#
  PQcancel@Base 0
  PQclear@Base 0
  PQclientEncoding@Base 0
+ PQclosePortal@Base 17~~
+ PQclosePrepared@Base 17~~
  PQcmdStatus@Base 0
  PQcmdTuples@Base 0
  PQconndefaults@Base 0
@@ -120,6 +122,8 @@ libpq.so.5 libpq5 #MINVER#
  PQresultSetInstanceData@Base 8.4~
  PQresultStatus@Base 0
  PQresultVerboseErrorMessage@Base 9.6~~
+ PQsendClosePortal@Base 17~~
+ PQsendClosePrepared@Base 17~~
  PQsendDescribePortal@Base 0
  PQsendDescribePrepared@Base 0
  PQsendFlushRequest@Base 15~~
