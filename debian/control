@@ -41,7 +41,7 @@ Build-Depends:
  mawk,
  perl (>= 5.8),
  pkg-config,
- postgresql-common (>= 250~),
+ postgresql-common (>= 252~),
  python3-dev,
  systemtap-sdt-dev,
  tcl-dev,
@@ -160,7 +160,7 @@ Architecture: any
 Depends:
  locales | locales-all,
  postgresql-client-16,
- postgresql-common (>= 248~),
+ postgresql-common (>= 252~),
  ssl-cert,
  tzdata,
  ${misc:Depends},
