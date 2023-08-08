@@ -16,5 +16,6 @@ Restrictions: needs-root
 Tests: installcheck
 Depends:
  build-essential,
+ tzdata-legacy,
  @,
 Restrictions: allow-stderr
