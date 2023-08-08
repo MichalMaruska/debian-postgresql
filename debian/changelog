@@ -27,6 +27,8 @@ postgresql-15 (15.4-1) unstable; urgency=medium
       The PostgreSQL Project thanks Dean Rasheed for reporting this problem.
       (CVE-2023-39418)
 
+  * Test-Depend on tzdata-legacy.
+
  -- Christoph Berg <myon@debian.org>  Tue, 08 Aug 2023 10:10:20 +0200
 
 postgresql-15 (15.3-1) experimental; urgency=medium

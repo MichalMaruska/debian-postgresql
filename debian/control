@@ -45,6 +45,8 @@ Build-Depends:
  python3-dev,
  systemtap-sdt-dev,
  tcl-dev,
+ tzdata <!nocheck>,
+ tzdata-legacy <!nocheck>,
  uuid-dev,
  xsltproc,
  zlib1g-dev | libz-dev,
