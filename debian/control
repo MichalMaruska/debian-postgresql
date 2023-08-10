@@ -46,7 +46,7 @@ Build-Depends:
  systemtap-sdt-dev,
  tcl-dev,
  tzdata <!nocheck>,
- tzdata-legacy <!nocheck>,
+ tzdata-legacy <!nocheck> | tzdata (<< 2023c-8) <!nocheck>,
  uuid-dev,
  xsltproc,
  zlib1g-dev | libz-dev,
