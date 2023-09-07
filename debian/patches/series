@@ -11,5 +11,4 @@ autoconf2.69
 focal-arm64-outline-atomics
 jit-s390x
 hurd-iovec
-v8-0001-Fix-recovery-conflict-SIGUSR1-handling.patch
 pgstat-report-conflicts-immediately.patch
