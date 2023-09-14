@@ -1,3 +1,10 @@
+postgresql-15 (15.4-3) unstable; urgency=medium
+
+  * Stop building lib packages, postgresql-16 is in unstable.
+  * Use LLVM 15 for JIT support, 16 is not supported yet. (Closes: #1051881)
+
+ -- Christoph Berg <myon@debian.org>  Thu, 14 Sep 2023 09:28:43 +0200
+
 postgresql-15 (15.4-2) unstable; urgency=medium
 
   * Disable jit on loong64; PG does not support LLVM 16 yet while LLVM
