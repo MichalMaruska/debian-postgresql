@@ -1,3 +1,9 @@
+postgresql-16 (16.0-2) unstable; urgency=medium
+
+  * Use LLVM 15 for JIT support, 16 is not supported yet. (Closes: #1051881)
+
+ -- Christoph Berg <myon@debian.org>  Thu, 14 Sep 2023 09:13:57 +0200
+
 postgresql-16 (16.0-1) unstable; urgency=medium
 
   * First PostgreSQL 16 release.
