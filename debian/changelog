@@ -1,3 +1,9 @@
+postgresql-16 (16.1-0) UNRELEASED; urgency=medium
+
+  * Rebase debian/patches/libpgport-pkglibdir.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 30 Sep 2023 21:52:45 +0200
+
 postgresql-16 (16.0-2) unstable; urgency=medium
 
   * Use LLVM 15 for JIT support, 16 is not supported yet. (Closes: #1051881)
