@@ -6,7 +6,7 @@ Forwarded: No, (somewhat) Debian specific
 
 --- a/src/common/Makefile
 +++ b/src/common/Makefile
-@@ -125,15 +125,15 @@ distprep: kwlist_d.h
+@@ -126,15 +126,15 @@ distprep: kwlist_d.h
  
  # libpgcommon is needed by some contrib
  install: all installdirs
@@ -71,14 +71,12 @@ Forwarded: No, (somewhat) Debian specific
  	rm -f $@
 --- a/src/Makefile.global.in
 +++ b/src/Makefile.global.in
-@@ -595,8 +595,8 @@ libpq = -L$(libpq_builddir) -lpq
- # on client link lines, since that also appears in $(LIBS).
- # libpq_pgport_shlib is the same idea, but for use in client shared libraries.
+@@ -608,7 +608,7 @@ libpq_pgport = $(libpq)
+ # done if they don't, since they will have satisfied all their references
+ # from these libraries.)
  ifdef PGXS
--libpq_pgport = -L$(libdir) -lpgcommon -lpgport $(libpq)
 -libpq_pgport_shlib = -L$(libdir) -lpgcommon_shlib -lpgport_shlib $(libpq)
-+libpq_pgport = -L$(pkglibdir) -lpgcommon -lpgport $(libpq)
 +libpq_pgport_shlib = -L$(pkglibdir) -lpgcommon_shlib -lpgport_shlib $(libpq)
  else
- libpq_pgport = -L$(top_builddir)/src/common -lpgcommon -L$(top_builddir)/src/port -lpgport $(libpq)
  libpq_pgport_shlib = -L$(top_builddir)/src/common -lpgcommon_shlib -L$(top_builddir)/src/port -lpgport_shlib $(libpq)
+ endif
