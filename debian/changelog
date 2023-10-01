@@ -1,3 +1,9 @@
+postgresql-15 (15.4-3-maruska2) unstable; urgency=medium
+
+  * Do include libpq5 in packages to build!
+
+ -- Michal Maruska <mmaruska@gmail.com>  Sun, 01 Oct 2023 23:24:43 +0200
+
 postgresql-15 (15.4-3-maruska) unstable; urgency=medium
 
   * auto: introduce my way of checking out the sources: from mmc13.1
