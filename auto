@@ -3,3 +3,7 @@
 # checkout into:
 # a worktree?
 git archive --remote ~/git/postgresql/ mmc13.1 | tar x
+
+# so I should apply the patches too!
+QUILT_PATCHES=debian/patches quilt push -a
+# quilt push -av debian/patches/series
