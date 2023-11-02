@@ -32,13 +32,3 @@ the build path from -fdebug-prefix-map and -ffile-prefix-map in CFLAGS.
  AC_DEFINE_UNQUOTED(CONFIGURE_ARGS, ["$ac_configure_args"], [Saved arguments from configure])
  
  [PG_MAJORVERSION=`expr "$PACKAGE_VERSION" : '\([0-9][0-9]*\)'`]
---- a/configure
-+++ b/configure
-@@ -2822,6 +2822,7 @@ ac_config_sub="$SHELL $ac_aux_dir/config
- ac_configure="$SHELL $ac_aux_dir/configure"  # Please don't use this var.
- 
- 
-+ac_configure_args=$(echo "$ac_configure_args" | sed -e "s/ -f\(debug\|file\)-prefix-map=[^' ]*//g")
- 
- 
- cat >>confdefs.h <<_ACEOF
