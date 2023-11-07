@@ -1,4 +1,4 @@
-postgresql-16 (16.1-0) unstable; urgency=medium
+postgresql-16 (16.1-1) unstable; urgency=medium
 
   * New upstream version.
 
@@ -41,6 +41,15 @@ postgresql-16 (16.1-0) unstable; urgency=medium
 
       The PostgreSQL Project thanks Hemanth Sandrana and Mahendrakar
       Srinivasarao for reporting this problem. (CVE-2023-5870)
+
+    * Fix misbehavior during recursive page split in GiST index build
+      (Heikki Linnakangas)
+
+      Fix a case where the location of a page downlink was incorrectly
+      tracked, and introduce some logic to allow recovering from such
+      situations rather than silently doing the wrong thing.  This error could
+      result in incorrect answers from subsequent index searches. It may be
+      advisable to reindex all GiST indexes after installing this update.
 
     * Prevent de-duplication of btree index entries for interval columns
 
