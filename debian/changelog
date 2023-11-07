@@ -1,9 +1,61 @@
-postgresql-16 (16.1-0) UNRELEASED; urgency=medium
+postgresql-16 (16.1-0) unstable; urgency=medium
+
+  * New upstream version.
+
+    * Fix handling of unknown-type arguments in DISTINCT "any" aggregate
+      functions (Tom Lane)
+
+      This error led to a text-type value being interpreted as an unknown-type
+      value (that is, a zero-terminated string) at runtime.  This could result
+      in disclosure of server memory following the text value.
+
+      The PostgreSQL Project thanks Jingzhou Fu for reporting this problem.
+      (CVE-2023-5868)
+
+    * Detect integer overflow while computing new array dimensions
+      (Tom Lane)
+
+      When assigning new elements to array subscripts that are outside the
+      current array bounds, an undetected integer overflow could occur in edge
+      cases.  Memory stomps that are potentially exploitable for arbitrary
+      code execution are possible, and so is disclosure of server memory.
+
+      The PostgreSQL Project thanks Pedro Gallegos for reporting this problem.
+      (CVE-2023-5869)
+
+    * Prevent the pg_signal_backend role from signalling background workers
+      and autovacuum processes (Noah Misch, Jelte Fennema-Nio)
+
+      The documentation says that pg_signal_backend
+      cannot issue signals to superuser-owned processes.  It was able to
+      signal these background processes, though, because they advertise a
+      role OID of zero.  Treat that as indicating superuser ownership.
+      The security implications of cancelling one of these process types
+      are fairly small so far as the core code goes (we'll just start
+      another one), but extensions might add background workers that are
+      more vulnerable.
+
+      Also ensure that the is_superuser parameter is set correctly in such
+      processes.  No specific security consequences are known for that
+      oversight, but it might be significant for some extensions.
+
+      The PostgreSQL Project thanks Hemanth Sandrana and Mahendrakar
+      Srinivasarao for reporting this problem. (CVE-2023-5870)
+
+    * Prevent de-duplication of btree index entries for interval columns
+
+      There are interval values that are distinguishable but compare equal,
+      for example 24:00:00 and 1 day.  This breaks assumptions made by btree
+      de-duplication, so interval columns need to be excluded from
+      de-duplication.  This oversight can cause incorrect results from
+      index-only scans.  Moreover, after updating amcheck will report an error
+      for almost all such indexes.  Users should reindex any btree indexes on
+      interval columns.
 
   * Use default LLVM version; package is now compatible with LLVM 16.
   * Rebase debian/patches/libpgport-pkglibdir.
 
- -- Christoph Berg <myon@debian.org>  Sat, 30 Sep 2023 21:52:45 +0200
+ -- Christoph Berg <myon@debian.org>  Tue, 07 Nov 2023 14:18:31 +0100
 
 postgresql-16 (16.0-2) unstable; urgency=medium
 
