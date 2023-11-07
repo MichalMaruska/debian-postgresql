@@ -1,5 +1,6 @@
 postgresql-16 (16.1-0) UNRELEASED; urgency=medium
 
+  * Use default LLVM version; package is now compatible with LLVM 16.
   * Rebase debian/patches/libpgport-pkglibdir.
 
  -- Christoph Berg <myon@debian.org>  Sat, 30 Sep 2023 21:52:45 +0200
