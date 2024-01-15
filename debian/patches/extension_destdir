@@ -67,7 +67,7 @@
  	if (from_version)
  		snprintf(result, MAXPGPATH, "%s/%s--%s--%s.sql",
  				 scriptdir, control->name, from_version, version);
-@@ -1186,6 +1225,59 @@ get_ext_ver_list(ExtensionControlFile *c
+@@ -1208,6 +1247,59 @@ get_ext_ver_list(ExtensionControlFile *c
  	DIR		   *dir;
  	struct dirent *de;
  
@@ -127,7 +127,7 @@
  	location = get_extension_script_directory(control);
  	dir = AllocateDir(location);
  	while ((de = ReadDir(dir, location)) != NULL)
-@@ -3470,3 +3562,32 @@ read_whole_file(const char *filename, in
+@@ -3491,3 +3583,32 @@ read_whole_file(const char *filename, in
  	buf[*length] = '\0';
  	return buf;
  }
@@ -162,7 +162,7 @@
 +}
 --- a/src/include/utils/guc.h
 +++ b/src/include/utils/guc.h
-@@ -274,6 +274,7 @@ extern PGDLLIMPORT char *ConfigFileName;
+@@ -277,6 +277,7 @@ extern PGDLLIMPORT char *ConfigFileName;
  extern PGDLLIMPORT char *HbaFileName;
  extern PGDLLIMPORT char *IdentFileName;
  extern PGDLLIMPORT char *external_pid_file;
@@ -172,15 +172,15 @@
  
 --- a/src/backend/utils/fmgr/dfmgr.c
 +++ b/src/backend/utils/fmgr/dfmgr.c
-@@ -34,6 +34,7 @@
- #include "lib/stringinfo.h"
+@@ -35,6 +35,7 @@
  #include "miscadmin.h"
+ #include "storage/fd.h"
  #include "storage/shmem.h"
 +#include "utils/guc.h"
  #include "utils/hsearch.h"
  
  
-@@ -432,7 +433,7 @@ expand_dynamic_library_name(const char *
+@@ -415,7 +416,7 @@ expand_dynamic_library_name(const char *
  {
  	bool		have_slash;
  	char	   *new;
@@ -189,7 +189,7 @@
  
  	Assert(name);
  
-@@ -447,6 +448,19 @@ expand_dynamic_library_name(const char *
+@@ -430,6 +431,19 @@ expand_dynamic_library_name(const char *
  	else
  	{
  		full = substitute_libpath_macro(name);
@@ -206,10 +206,10 @@
 +			}
 +			pfree(full2);
 +		}
- 		if (file_exists(full))
+ 		if (pg_file_exists(full))
  			return full;
  		pfree(full);
-@@ -465,6 +479,19 @@ expand_dynamic_library_name(const char *
+@@ -448,6 +462,19 @@ expand_dynamic_library_name(const char *
  	{
  		full = substitute_libpath_macro(new);
  		pfree(new);
@@ -226,12 +226,12 @@
 +			}
 +			pfree(full2);
 +		}
- 		if (file_exists(full))
+ 		if (pg_file_exists(full))
  			return full;
  		pfree(full);
 --- a/src/backend/utils/misc/postgresql.conf.sample
 +++ b/src/backend/utils/misc/postgresql.conf.sample
-@@ -750,6 +750,8 @@
+@@ -756,6 +756,8 @@
  # - Other Defaults -
  
  #dynamic_library_path = '$libdir'
@@ -242,7 +242,7 @@
  
 --- a/src/backend/utils/misc/guc_tables.c
 +++ b/src/backend/utils/misc/guc_tables.c
-@@ -528,6 +528,7 @@ char	   *ConfigFileName;
+@@ -538,6 +538,7 @@ char	   *ConfigFileName;
  char	   *HbaFileName;
  char	   *IdentFileName;
  char	   *external_pid_file;
@@ -250,7 +250,7 @@
  
  char	   *application_name;
  
-@@ -4346,6 +4347,17 @@ struct config_string ConfigureNamesStrin
+@@ -4405,6 +4406,17 @@ struct config_string ConfigureNamesStrin
  	},
  
  	{
