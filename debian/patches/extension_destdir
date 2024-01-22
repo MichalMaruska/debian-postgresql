@@ -1,15 +1,6 @@
 --- a/src/backend/commands/extension.c
 +++ b/src/backend/commands/extension.c
-@@ -132,6 +132,8 @@ static void ApplyExtensionUpdates(Oid ex
- 								  bool cascade,
- 								  bool is_create);
- static char *read_whole_file(const char *filename, int *length);
-+static bool file_exists(const char *name);
-+static bool directory_exists(const char *dir);
- 
- 
- /*
-@@ -392,6 +394,16 @@ get_extension_control_filename(const cha
+@@ -392,6 +392,16 @@ get_extension_control_filename(const cha
  
  	get_share_path(my_exec_path, sharepath);
  	result = (char *) palloc(MAXPGPATH);
@@ -20,13 +11,13 @@
 +	{
 +		snprintf(result, MAXPGPATH, "%s%s/extension/%s.control",
 +				 extension_destdir, sharepath, extname);
-+		if (file_exists(result))
++		if (pg_file_exists(result))
 +			return result;
 +	}
  	snprintf(result, MAXPGPATH, "%s/extension/%s.control",
  			 sharepath, extname);
  
-@@ -431,6 +443,16 @@ get_extension_aux_control_filename(Exten
+@@ -431,6 +441,16 @@ get_extension_aux_control_filename(Exten
  	scriptdir = get_extension_script_directory(control);
  
  	result = (char *) palloc(MAXPGPATH);
@@ -37,13 +28,13 @@
 +	{
 +		snprintf(result, MAXPGPATH, "%s%s/%s--%s.control",
 +				 extension_destdir, scriptdir, control->name, version);
-+		if (file_exists(result))
++		if (pg_file_exists(result))
 +			return result;
 +	}
  	snprintf(result, MAXPGPATH, "%s/%s--%s.control",
  			 scriptdir, control->name, version);
  
-@@ -449,6 +471,23 @@ get_extension_script_filename(ExtensionC
+@@ -449,6 +469,23 @@ get_extension_script_filename(ExtensionC
  	scriptdir = get_extension_script_directory(control);
  
  	result = (char *) palloc(MAXPGPATH);
@@ -58,7 +49,7 @@
 +		else
 +			snprintf(result, MAXPGPATH, "%s%s/%s--%s.sql",
 +					 extension_destdir, scriptdir, control->name, version);
-+		if (file_exists(result))
++		if (pg_file_exists(result))
 +		{
 +			pfree(scriptdir);
 +			return result;
@@ -67,7 +58,7 @@
  	if (from_version)
  		snprintf(result, MAXPGPATH, "%s/%s--%s--%s.sql",
  				 scriptdir, control->name, from_version, version);
-@@ -1208,6 +1247,59 @@ get_ext_ver_list(ExtensionControlFile *c
+@@ -1208,6 +1245,59 @@ get_ext_ver_list(ExtensionControlFile *c
  	DIR		   *dir;
  	struct dirent *de;
  
@@ -127,39 +118,6 @@
  	location = get_extension_script_directory(control);
  	dir = AllocateDir(location);
  	while ((de = ReadDir(dir, location)) != NULL)
-@@ -3491,3 +3583,32 @@ read_whole_file(const char *filename, in
- 	buf[*length] = '\0';
- 	return buf;
- }
-+
-+static bool
-+file_exists(const char *name)
-+{
-+	struct stat st;
-+
-+	Assert(name != NULL);
-+
-+	if (stat(name, &st) == 0)
-+		return S_ISDIR(st.st_mode) ? false : true;
-+	else if (!(errno == ENOENT || errno == ENOTDIR || errno == EACCES))
-+		ereport(ERROR,
-+				(errcode_for_file_access(),
-+				 errmsg("could not access file \"%s\": %m", name)));
-+
-+	return false;
-+}
-+
-+static bool
-+directory_exists(const char *dir)
-+{
-+	struct stat st;
-+
-+	if (stat(dir, &st) != 0)
-+		return false;
-+	if (S_ISDIR(st.st_mode))
-+		return true;
-+	return false;
-+}
 --- a/src/include/utils/guc.h
 +++ b/src/include/utils/guc.h
 @@ -277,6 +277,7 @@ extern PGDLLIMPORT char *ConfigFileName;
@@ -199,7 +157,7 @@
 +		if (*extension_destdir != '\0')
 +		{
 +			full2 = psprintf("%s%s", extension_destdir, full);
-+			if (file_exists(full2))
++			if (pg_file_exists(full2))
 +			{
 +				pfree(full);
 +				return full2;
@@ -219,7 +177,7 @@
 +		if (*extension_destdir != '\0')
 +		{
 +			full2 = psprintf("%s%s", extension_destdir, full);
-+			if (file_exists(full2))
++			if (pg_file_exists(full2))
 +			{
 +				pfree(full);
 +				return full2;
@@ -231,7 +189,7 @@
  		pfree(full);
 --- a/src/backend/utils/misc/postgresql.conf.sample
 +++ b/src/backend/utils/misc/postgresql.conf.sample
-@@ -756,6 +756,8 @@
+@@ -757,6 +757,8 @@
  # - Other Defaults -
  
  #dynamic_library_path = '$libdir'
@@ -250,7 +208,7 @@
  
  char	   *application_name;
  
-@@ -4405,6 +4406,17 @@ struct config_string ConfigureNamesStrin
+@@ -4415,6 +4416,17 @@ struct config_string ConfigureNamesStrin
  	},
  
  	{
