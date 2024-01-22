@@ -13,6 +13,7 @@ usr/lib/postgresql/*/bin/pg_test_fsync
 usr/lib/postgresql/*/bin/pg_test_timing
 usr/lib/postgresql/*/bin/pg_upgrade
 usr/lib/postgresql/*/bin/pg_waldump
+usr/lib/postgresql/*/bin/pg_walsummary
 usr/lib/postgresql/*/bin/postgres
 usr/lib/postgresql/*/bin/vacuumlo
 [!alpha !hppa !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32] usr/lib/postgresql/*/lib/bitcode
@@ -29,6 +30,7 @@ usr/share/locale/*/LC_MESSAGES/pg_test_fsync-*.mo
 usr/share/locale/*/LC_MESSAGES/pg_test_timing-*.mo
 usr/share/locale/*/LC_MESSAGES/pg_upgrade-*.mo
 usr/share/locale/*/LC_MESSAGES/pg_waldump-*.mo
+usr/share/locale/*/LC_MESSAGES/pg_walsummary-*.mo
 usr/share/locale/*/LC_MESSAGES/postgres-*.mo
 usr/share/locale/*/LC_MESSAGES/plpgsql-*.mo
 [linux-any] usr/share/postgresql/*/contrib/sepgsql.sql
