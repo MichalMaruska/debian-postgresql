@@ -3,6 +3,7 @@ libpq.so.5 libpq5 #MINVER#
  PQbackendPID@Base 0
  PQbinaryTuples@Base 0
  PQcancel@Base 0
+ PQchangePassword@Base 17~~
  PQclear@Base 0
  PQclientEncoding@Base 0
  PQclosePortal@Base 17~~
@@ -127,6 +128,7 @@ libpq.so.5 libpq5 #MINVER#
  PQsendDescribePortal@Base 0
  PQsendDescribePrepared@Base 0
  PQsendFlushRequest@Base 15~~
+ PQsendPipelineSync@Base 17~~
  PQsendPrepare@Base 0
  PQsendQuery@Base 0
  PQsendQueryParams@Base 0
