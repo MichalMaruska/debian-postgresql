@@ -3,6 +3,15 @@ libpq.so.5 libpq5 #MINVER#
  PQbackendPID@Base 0
  PQbinaryTuples@Base 0
  PQcancel@Base 0
+ PQcancelBlocking@Base 17~~
+ PQcancelCreate@Base 17~~
+ PQcancelErrorMessage@Base 17~~
+ PQcancelFinish@Base 17~~
+ PQcancelPoll@Base 17~~
+ PQcancelReset@Base 17~~
+ PQcancelSocket@Base 17~~
+ PQcancelStart@Base 17~~
+ PQcancelStatus@Base 17~~
  PQchangePassword@Base 17~~
  PQclear@Base 0
  PQclientEncoding@Base 0
