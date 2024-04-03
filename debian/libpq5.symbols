@@ -157,6 +157,7 @@ libpq.so.5 libpq5 #MINVER#
  PQsetnonblocking@Base 0
  PQsetvalue@Base 8.4~
  PQsocket@Base 0
+ PQsocketPoll@Base 17~~
  PQsslAttribute@Base 9.5~~
  PQsslAttributeNames@Base 9.5~~
  PQsslInUse@Base 9.5~~
