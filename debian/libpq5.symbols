@@ -143,6 +143,7 @@ libpq.so.5 libpq5 #MINVER#
  PQsendQueryParams@Base 0
  PQsendQueryPrepared@Base 0
  PQserverVersion@Base 0
+ PQsetChunkedRowsMode@Base 17~~
  PQsetClientEncoding@Base 0
  PQsetErrorContextVisibility@Base 9.6~~
  PQsetErrorVerbosity@Base 0
