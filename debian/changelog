@@ -1,3 +1,13 @@
+postgresql-16 (16.2-2+maruska) unstable; urgency=medium
+
+  * auto: introduce my way of checking out the sources: from mmc13.1
+  * Add my Symbols to the list -- in the library!
+  * apply the patch by quilt
+  * Use 16_0_mmc
+  * use 16.2
+
+ -- Michal Maruska <mmaruska@gmail.com>  Tue, 16 Apr 2024 09:04:58 +0200
+
 postgresql-16 (16.1-1) unstable; urgency=medium
 
   * New upstream version.
