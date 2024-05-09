@@ -1,5 +1,5 @@
-postgresql-17 (17~~devel-1) UNRELEASED; urgency=medium
+postgresql-17 (17~~devel20240509-1) experimental; urgency=medium
 
   * New major upstream version 17; packaging based on postgresql-16.
 
- -- Christoph Berg <myon@debian.org>  Fri, 30 Jun 2023 11:39:49 +0200
+ -- Christoph Berg <myon@debian.org>  Thu, 09 May 2024 18:45:32 +0200
