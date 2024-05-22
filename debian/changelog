@@ -1,3 +1,9 @@
+postgresql-17 (17~beta1-1) experimental; urgency=medium
+
+  * First beta version.
+
+ -- Christoph Berg <myon@debian.org>  Wed, 22 May 2024 18:54:56 +0200
+
 postgresql-17 (17~~devel20240509-1) experimental; urgency=medium
 
   * New major upstream version 17; packaging based on postgresql-16.

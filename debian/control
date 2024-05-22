@@ -40,7 +40,7 @@ Build-Depends:
  lz4 | liblz4-tool,
  mawk,
  perl (>= 5.8),
- pkg-config,
+ pkgconf,
  postgresql-common (>= 256~),
  python3-dev,
  systemtap-sdt-dev,
