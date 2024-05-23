@@ -43,7 +43,7 @@ Build-Depends:
  pkgconf,
  postgresql-common (>= 256~),
  python3-dev,
- systemtap-sdt-dev,
+ systemtap-sdt-dev [linux-any],
  tcl-dev,
  tzdata <!nocheck>,
  tzdata-legacy <!nocheck> | tzdata (<< 2023c-8) <!nocheck>,
