@@ -72,6 +72,7 @@ libpq.so.5 libpq5 #MINVER#
  PQftype@Base 0
  PQgetCancel@Base 0
  PQgetCopyData@Base 0
+ PQgetCurrentTimeUSec@Base 17~beta2
  PQgetResult@Base 0
  PQgetSSLKeyPassHook_OpenSSL@Base 13~~
  PQgetgssctx@Base 12~~

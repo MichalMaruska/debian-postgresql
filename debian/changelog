@@ -1,6 +1,7 @@
-postgresql-17 (17~beta1-2) UNRELEASED; urgency=medium
+postgresql-17 (17~beta2-1) UNRELEASED; urgency=medium
 
   * Restrict systemtap-sdt-dev B-D to linux-any.
+  * Add libpq5 symbol PQgetCurrentTimeUSec.
 
  -- Christoph Berg <myon@debian.org>  Thu, 23 May 2024 15:50:10 +0200
 
