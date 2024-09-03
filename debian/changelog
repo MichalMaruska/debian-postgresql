@@ -1,3 +1,9 @@
+postgresql-17 (17~rc1-1) unstable; urgency=medium
+
+  * First RC version.
+
+ -- Christoph Berg <myon@debian.org>  Tue, 03 Sep 2024 11:58:30 +0200
+
 postgresql-17 (17~beta3-1) experimental; urgency=medium
 
   * Third beta version.
