@@ -1,0 +1,28 @@
+commit 1591b38d17c55015403f6e3c9461538ffcf704e7
+Author: Tom Lane <tgl@sss.pgh.pa.us>
+Date:   Tue Sep 24 17:21:38 2024 -0400
+
+    Fix psql describe commands' handling of ACL columns for old servers.
+    
+    Commit d1379ebf4 carelessly broke printACLColumn for pre-9.4 servers,
+    by using the cardinality() function which we introduced in 9.4.
+    We expect psql's describe-related commands to work back to 9.2, so
+    this is bad.  Use the longstanding array_length() function instead.
+    
+    Per report from Christoph Berg.  Back-patch to v17.
+    
+    Discussion: https://postgr.es/m/ZvLXYglRS6hMMhtr@msg.df7cb.de
+
+diff --git a/src/bin/psql/describe.c b/src/bin/psql/describe.c
+index faabecbc76..6a36c91083 100644
+--- a/src/bin/psql/describe.c
++++ b/src/bin/psql/describe.c
+@@ -6678,7 +6678,7 @@ printACLColumn(PQExpBuffer buf, const char *colname)
+ {
+ 	appendPQExpBuffer(buf,
+ 					  "CASE"
+-					  " WHEN pg_catalog.cardinality(%s) = 0 THEN '%s'"
++					  " WHEN pg_catalog.array_length(%s, 1) = 0 THEN '%s'"
+ 					  " ELSE pg_catalog.array_to_string(%s, E'\\n')"
+ 					  " END AS \"%s\"",
+ 					  colname, gettext_noop("(none)"),
