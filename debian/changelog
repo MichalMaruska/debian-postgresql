@@ -1,3 +1,22 @@
+postgresql-17 (17.2-1) unstable; urgency=medium
+
+  * New upstream version 17.2.
+
+    + Repair ABI break for extensions that work with struct ResultRelInfo
+
+      Last week's minor releases unintentionally broke binary compatibility
+      with timescaledb and several other extensions.  Restore the affected
+      structure to its previous size, so that such extensions need not be
+      rebuilt.
+
+    + Restore functionality of ALTER {ROLE|DATABASE} SET role
+
+      The fix for CVE-2024-10978 accidentally caused settings for role to not
+      be applied if they come from non-interactive sources, including previous
+      ALTER {ROLE|DATABASE} commands and the PGOPTIONS environment variable.
+
+ -- Christoph Berg <myon@debian.org>  Tue, 19 Nov 2024 15:36:12 +0100
+
 postgresql-17 (17.1-1) unstable; urgency=medium
 
   * New upstream version 17.1.
