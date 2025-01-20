@@ -40,7 +40,7 @@ Build-Depends:
  mawk,
  perl (>= 5.8),
  pkgconf,
- postgresql-common (>= 256~),
+ postgresql-common-dev,
  python3-dev,
  systemtap-sdt-dev [linux-any],
  tcl-dev,
