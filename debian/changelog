@@ -33,6 +33,7 @@ postgresql-17 (17.3-1) unstable; urgency=medium
       (CVE-2025-1094)
 
   * B-D on postgresql-common-dev.
+  * Test-depend only our server packages, i.e. allow libpq5 to be newer.
 
  -- Christoph Berg <myon@debian.org>  Tue, 11 Feb 2025 11:27:41 +0100
 
