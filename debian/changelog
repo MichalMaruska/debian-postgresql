@@ -32,6 +32,8 @@ postgresql-17 (17.3-1) unstable; urgency=medium
       The PostgreSQL Project thanks Stephen Fewer for reporting this problem.
       (CVE-2025-1094)
 
+    + Adjust tests to tzdata 2025a changes. (Closes: #1093414)
+
   * B-D on postgresql-common-dev.
   * Test-depend only our server packages, i.e. allow libpq5 to be newer.
 
