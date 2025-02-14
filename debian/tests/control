@@ -25,4 +25,6 @@ Depends:
  build-essential,
  tzdata-legacy | tzdata (<< 2023c-8),
  postgresql-17,
+ postgresql-client-17,
+ postgresql-server-dev-17,
 Restrictions: allow-stderr
