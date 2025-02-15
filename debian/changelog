@@ -1,3 +1,9 @@
+postgresql-17 (17.3-3) unstable; urgency=medium
+
+  * Cherry-pick fix for PQescapeIdentifier regression.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 15 Feb 2025 20:55:03 +0000
+
 postgresql-17 (17.3-2) unstable; urgency=medium
 
   * installcheck: Test-depend on postgresql-server-dev-17 for postgres.h.
