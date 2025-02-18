@@ -12,4 +12,3 @@ focal-arm64-outline-atomics
 jit-s390x
 hurd-iovec
 pgstat-report-conflicts-immediately.patch
-efdadeb2238f5b5f0f32df2f3e7d277d1faf1c4f
