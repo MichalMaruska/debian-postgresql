@@ -34,6 +34,7 @@ libpq.so.5 libpq5 #MINVER#
  PQconsumeInput@Base 0
  PQcopyResult@Base 8.4~
  PQdb@Base 0
+ PQdefaultAuthDataHook@Base 18~~
  PQdefaultSSLKeyPassHook_OpenSSL@Base 13~~
  PQdescribePortal@Base 0
  PQdescribePrepared@Base 0
@@ -70,6 +71,7 @@ libpq.so.5 libpq5 #MINVER#
  PQftable@Base 0
  PQftablecol@Base 0
  PQftype@Base 0
+ PQgetAuthDataHook@Base 18~~
  PQgetCancel@Base 0
  PQgetCopyData@Base 0
  PQgetCurrentTimeUSec@Base 17~beta2
@@ -145,6 +147,7 @@ libpq.so.5 libpq5 #MINVER#
  PQsendQueryPrepared@Base 0
  PQserverVersion@Base 0
  PQservice@Base 18~~
+ PQsetAuthDataHook@Base 18~~
  PQsetChunkedRowsMode@Base 17~~
  PQsetClientEncoding@Base 0
  PQsetErrorContextVisibility@Base 9.6~~
