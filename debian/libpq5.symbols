@@ -71,6 +71,7 @@ libpq.so.5 libpq5 #MINVER#
  PQftable@Base 0
  PQftablecol@Base 0
  PQftype@Base 0
+ PQfullProtocolVersion@Base 18~~
  PQgetAuthDataHook@Base 18~~
  PQgetCancel@Base 0
  PQgetCopyData@Base 0
