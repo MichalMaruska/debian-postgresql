@@ -1,5 +1,6 @@
 postgresql-18 (18~~devel-1) UNRELEASED; urgency=medium
 
   * New major upstream version 18; packaging based on postgresql-17.
+  * Move JIT to new postgresql-18-jit package. (Closes: #927182)
 
  -- Christoph Berg <myon@debian.org>  Tue, 02 Jul 2024 14:48:33 +0200

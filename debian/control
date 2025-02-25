@@ -11,7 +11,7 @@ Rules-Requires-Root: no
 Build-Depends:
  autoconf,
  bison,
- clang [!alpha !hppa !hurd-amd64 !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !loong64 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32] <!pkg.postgresql.nollvm>,
+ clang [amd64 arm64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
  debhelper-compat (= 13),
  dh-exec (>= 0.13~),
  docbook-xml,
@@ -37,7 +37,7 @@ Build-Depends:
  libxml2-utils,
  libxslt1-dev,
  libzstd-dev (>= 1.4.0) <!pkg.postgresql.nozstd>,
- llvm-dev [!alpha !hppa !hurd-amd64 !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !loong64 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32] <!pkg.postgresql.nollvm>,
+ llvm-dev [amd64 arm64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
  lz4 | liblz4-tool,
  mawk,
  perl (>= 5.8),
@@ -168,7 +168,7 @@ Package: postgresql-18
 Architecture: any
 Depends:
  locales | locales-all,
- postgresql-client-18,
+ postgresql-client-18 (>= ${binary:Version}),
  postgresql-common (>= 252~),
  ssl-cert,
  tzdata,
@@ -176,8 +176,8 @@ Depends:
  ${shlibs:Depends},
 Provides:
  postgresql-contrib-18,
- postgresql-18-jit-llvm (= ${llvm:Version}) [!alpha !hppa !hurd-amd64 !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !loong64 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32] <!pkg.postgresql.nollvm>,
 Recommends:
+ postgresql-18-jit,
  sysstat,
 Breaks:
  dbconfig-common (<< 2.0.22~),
@@ -224,9 +224,9 @@ Package: postgresql-server-dev-18
 Architecture: any
 Section: libdevel
 Depends:
- clang-${llvm:Version} [!alpha !hppa !hurd-amd64 !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !loong64 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32] <!pkg.postgresql.nollvm>,
+ clang-${llvm:Version} [amd64 arm64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
  libpq-dev (>= 18~~),
- llvm-${llvm:Version}-dev [!alpha !hppa !hurd-amd64 !hurd-i386 !ia64 !kfreebsd-amd64 !kfreebsd-i386 !loong64 !m68k !powerpc !riscv64 !sh4 !sparc64 !x32] <!pkg.postgresql.nollvm>,
+ llvm-${llvm:Version}-dev [amd64 arm64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
  postgresql-client-18,
  postgresql-common (>= 142~),
  ${misc:Depends},
@@ -299,3 +299,28 @@ Description: PL/Tcl procedural language for PostgreSQL 18
  PostgreSQL 18 functions that use the languages pltcl or pltclu.
  .
  PostgreSQL is an object-relational SQL database management system.
+
+Package: postgresql-18-jit
+Architecture: amd64 arm64 mips64el ppc64 ppc64el riscv64 s390x
+Build-Profiles: <!pkg.postgresql.nollvm>
+Depends:
+ postgresql-18 (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
+Provides:
+ postgresql-18-jit-llvm (= ${llvm:Version}),
+Replaces:
+ postgresql-18 (<= 18~~devel),
+ postgresql-plperl-18 (<= 18~~devel),
+ postgresql-plpython3-18 (<= 18~~devel),
+ postgresql-pltcl-18 (<= 18~~devel),
+Description: The World's Most Advanced Open Source Relational Database
+ PostgreSQL, also known as Postgres, is a free and open-source relational
+ database management system (RDBMS) emphasizing extensibility and SQL
+ compliance. It features transactions with Atomicity, Consistency, Isolation,
+ Durability (ACID) properties, automatically updatable views, materialized
+ views, triggers, foreign keys, and stored procedures. It is designed to handle
+ a range of workloads, from single machines to data warehouses or Web services
+ with many concurrent users.
+ .
+ This package provides LLVM-based query JITing for PostgreSQL 18.${cassert}
