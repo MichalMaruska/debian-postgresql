@@ -168,7 +168,7 @@ Package: postgresql-18
 Architecture: any
 Depends:
  locales | locales-all,
- postgresql-client-18 (>= ${binary:Version}),
+ postgresql-client-18 (= ${binary:Version}),
  postgresql-common (>= 252~),
  ssl-cert,
  tzdata,
@@ -227,7 +227,7 @@ Depends:
  clang-${llvm:Version} [amd64 arm64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
  libpq-dev (>= 18~~),
  llvm-${llvm:Version}-dev [amd64 arm64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
- postgresql-client-18,
+ postgresql-client-18 (= ${binary:Version}),
  postgresql-common (>= 142~),
  ${misc:Depends},
  ${shlibs:Depends},
@@ -323,4 +323,4 @@ Description: The World's Most Advanced Open Source Relational Database
  a range of workloads, from single machines to data warehouses or Web services
  with many concurrent users.
  .
- This package provides LLVM-based query JITing for PostgreSQL 18.${cassert}
+ This package provides LLVM-based query JITing for PostgreSQL 18.
