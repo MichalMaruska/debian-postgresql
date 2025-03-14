@@ -10,21 +10,12 @@ Depends:
  netcat-openbsd,
  perl,
  procps,
- libecpg-dev,
- postgresql-17,
- postgresql-client-17,
- postgresql-server-dev-17,
- postgresql-doc-17,
- postgresql-plperl-17,
- postgresql-plpython3-17,
- postgresql-pltcl-17,
+ @,
 Restrictions: needs-root
 
 Tests: installcheck
 Depends:
  build-essential,
  tzdata-legacy | tzdata (<< 2023c-8),
- postgresql-17,
- postgresql-client-17,
- postgresql-server-dev-17,
+ @,
 Restrictions: allow-stderr
