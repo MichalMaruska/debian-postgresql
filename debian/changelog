@@ -1,5 +1,7 @@
 postgresql-17 (17.4-2) UNRELEASED; urgency=medium
 
+  * libpq5: Recommend ca-certificates to support SSL certificate validation
+    using the sslrootcert=system connection option.
   * Revert "Test-depend only our server packages".
 
  -- Christoph Berg <myon@debian.org>  Fri, 14 Mar 2025 18:15:21 +0100
