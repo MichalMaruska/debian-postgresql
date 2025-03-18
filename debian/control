@@ -83,6 +83,8 @@ Depends:
  ${shlibs:Depends},
 Pre-Depends:
  ${misc:Pre-Depends},
+Recommends:
+ ca-certificates,
 Multi-Arch: same
 Description: PostgreSQL C client library
  libpq is a C library that enables user programs to communicate with
@@ -91,7 +93,8 @@ Description: PostgreSQL C client library
  with servers from PostgreSQL 8.2 or later.
  .
  This package contains the run-time library, needed by packages using
- libpq.
+ libpq. SSL certificate validation (the sslrootcert=system connection
+ option) requires the ca-certificates package.
  .
  PostgreSQL is an object-relational SQL database management system.
 
