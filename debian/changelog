@@ -1,3 +1,10 @@
+postgresql-18 (18~~devel.20250318+g4078da6c478-2) UNRELEASED; urgency=medium
+
+  * Drop extension_destdir patch, implemented upstream as
+    extension_control_path.
+
+ -- Christoph Berg <myon@debian.org>  Wed, 19 Mar 2025 15:47:26 +0100
+
 postgresql-18 (18~~devel.20250318+g4078da6c478-1) experimental; urgency=medium
 
   * New major upstream version 18; packaging based on postgresql-17.
