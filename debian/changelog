@@ -1,3 +1,13 @@
+postgresql-17 (17.4-1-maruska) unstable; urgency=medium
+
+  * auto: introduce my way of checking out the sources: from mmc13.1
+  * Add my Symbols to the list -- in the library!
+  * apply the patch by quilt
+  * Use 17_2_mmc
+  * use 17_4
+
+ -- Michal Maruska <mmaruska@gmail.com>  Sat, 22 Mar 2025 13:01:52 +0100
+
 postgresql-17 (17.4-1) unstable; urgency=medium
 
   * New upstream version 17.4.
