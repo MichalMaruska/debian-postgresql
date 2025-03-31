@@ -11,7 +11,7 @@ Rules-Requires-Root: no
 Build-Depends:
  autoconf,
  bison,
- clang [amd64 arm64 loong64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
+ clang [amd64 arm64 mips64el ppc64 ppc64el s390x] <!pkg.postgresql.nollvm>,
  debhelper-compat (= 13),
  dh-exec (>= 0.13~),
  docbook-xml,
@@ -37,7 +37,7 @@ Build-Depends:
  libxml2-utils,
  libxslt1-dev,
  libzstd-dev (>= 1.4.0) <!pkg.postgresql.nozstd>,
- llvm-dev [amd64 arm64 loong64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
+ llvm-dev [amd64 arm64 mips64el ppc64 ppc64el s390x] <!pkg.postgresql.nollvm>,
  lz4 | liblz4-tool,
  mawk,
  perl (>= 5.8),
@@ -227,9 +227,9 @@ Package: postgresql-server-dev-18
 Architecture: any
 Section: libdevel
 Depends:
- clang-${llvm:Version} [amd64 arm64 loong64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
+ clang-${llvm:Version} [amd64 arm64 mips64el ppc64 ppc64el s390x] <!pkg.postgresql.nollvm>,
  libpq-dev (>= 18~~),
- llvm-${llvm:Version}-dev [amd64 arm64 loong64 mips64el ppc64 ppc64el riscv64 s390x] <!pkg.postgresql.nollvm>,
+ llvm-${llvm:Version}-dev [amd64 arm64 mips64el ppc64 ppc64el s390x] <!pkg.postgresql.nollvm>,
  postgresql-client-18 (= ${binary:Version}),
  postgresql-common (>= 142~),
  ${misc:Depends},
@@ -304,7 +304,7 @@ Description: PL/Tcl procedural language for PostgreSQL 18
  PostgreSQL is an object-relational SQL database management system.
 
 Package: postgresql-18-jit
-Architecture: amd64 arm64 loong64 mips64el ppc64 ppc64el riscv64 s390x
+Architecture: amd64 arm64 mips64el ppc64 ppc64el s390x
 Build-Profiles: <!pkg.postgresql.nollvm>
 Depends:
  postgresql-18 (= ${binary:Version}),
