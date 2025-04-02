@@ -33,6 +33,7 @@ Build-Depends:
  libselinux1-dev [linux-any],
  libssl-dev,
  libsystemd-dev [linux-any],
+ liburing-dev [linux-any],
  libxml2-dev,
  libxml2-utils,
  libxslt1-dev,
