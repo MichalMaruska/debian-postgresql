@@ -1,5 +1,6 @@
-postgresql-18 (18~~devel.20250331-2) UNRELEASED; urgency=medium
+postgresql-18 (18~~devel.20250405-1) experimental; urgency=medium
 
+  * New upstream snapshot.
   * B-D on liburing-dev.
 
  -- Christoph Berg <myon@debian.org>  Wed, 02 Apr 2025 15:15:38 +0200
