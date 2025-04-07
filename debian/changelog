@@ -1,10 +1,10 @@
-postgresql-17 (17.4-2) UNRELEASED; urgency=medium
+postgresql-17 (17.4-2) unstable; urgency=medium
 
   * libpq5: Recommend ca-certificates to support SSL certificate validation
     using the sslrootcert=system connection option.
-  * Revert "Test-depend only our server packages".
+  * Revert "Test-depend only on our server packages".
 
- -- Christoph Berg <myon@debian.org>  Fri, 14 Mar 2025 18:15:21 +0100
+ -- Christoph Berg <myon@debian.org>  Mon, 07 Apr 2025 11:59:17 +0200
 
 postgresql-17 (17.4-1) unstable; urgency=medium
 
@@ -80,7 +80,7 @@ postgresql-17 (17.3-1) unstable; urgency=medium
     + Adjust tests to tzdata 2025a changes. (Closes: #1093414)
 
   * B-D on postgresql-common-dev.
-  * Test-depend only our server packages, i.e. allow libpq5 to be newer.
+  * Test-depend only on our server packages, i.e. allow libpq5 to be newer.
 
  -- Christoph Berg <myon@debian.org>  Tue, 11 Feb 2025 11:27:41 +0100
 
