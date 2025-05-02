@@ -1,3 +1,10 @@
+postgresql-18 (18~~devel.20250502-1) experimental; urgency=medium
+
+  * Split libpq-oauth into a separate package so libpq5 does not have to
+    depend on libcurl.
+
+ -- Christoph Berg <myon@debian.org>  Fri, 02 May 2025 10:39:45 +0200
+
 postgresql-18 (18~~devel.20250421-1) experimental; urgency=medium
 
   * New upstream snapshot.

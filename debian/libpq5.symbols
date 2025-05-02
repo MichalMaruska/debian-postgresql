@@ -180,6 +180,7 @@ libpq.so.5 libpq5 #MINVER#
  appendPQExpBuffer@Base 0
  appendPQExpBufferChar@Base 0
  appendPQExpBufferStr@Base 0
+ appendPQExpBufferVA@Base 18~~
  createPQExpBuffer@Base 0
  destroyPQExpBuffer@Base 0
  enlargePQExpBuffer@Base 0
