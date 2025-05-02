@@ -106,6 +106,7 @@ Build-Profiles: <!pkg.postgresql.nolibpkgs>
 Architecture: any
 Section: libs
 Depends:
+ libpq5 (= ${binary:Version}),
  ${misc:Depends},
  ${shlibs:Depends},
 Pre-Depends:
