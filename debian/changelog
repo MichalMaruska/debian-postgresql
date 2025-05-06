@@ -1,3 +1,16 @@
+postgresql-17 (17.5-1) unstable; urgency=medium
+
+  * New upstream version 17.5.
+
+    + Avoid one-byte buffer overread when examining invalidly-encoded strings
+      that are claimed to be in GB18030 encoding (Noah Misch, Andres Freund)
+
+      While unlikely, a SIGSEGV crash could occur if an incomplete multibyte
+      character appeared at the end of memory.  This was possible both in the
+      server and in libpq-using applications. (CVE-2025-4207)
+
+ -- Christoph Berg <myon@debian.org>  Tue, 06 May 2025 17:55:19 +0200
+
 postgresql-17 (17.4-2) unstable; urgency=medium
 
   * libpq5: Recommend ca-certificates to support SSL certificate validation
