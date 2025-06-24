@@ -2,6 +2,7 @@ postgresql-18 (18~beta1+20250624-1) experimental; urgency=medium
 
   * New upstream snapshot.
   * Restrict libpq-oauth and B-D: libnuma-dev to [linux-any].
+  * Work around a Linux 32-bit bug in move_pages on 64-bit kernels.
   * Add Turkish debconf translation by Atila KOÇ, thanks! (Closes: #1107984)
   * Add Catalan debconf translation by Carles Pina i Estany, thanks!
 
