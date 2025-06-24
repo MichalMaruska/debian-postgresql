@@ -1,3 +1,12 @@
+postgresql-18 (18~beta1+20250624-1) experimental; urgency=medium
+
+  * New upstream snapshot.
+  * Restrict libpq-oauth and B-D: libnuma-dev to [linux-any].
+  * Add Turkish debconf translation by Atila KOÇ, thanks! (Closes: #1107984)
+  * Add Catalan debconf translation by Carles Pina i Estany, thanks!
+
+ -- Christoph Berg <myon@debian.org>  Mon, 23 Jun 2025 14:37:14 +0200
+
 postgresql-18 (18~beta1+20250612-1) experimental; urgency=medium
 
   * New upstream snapshot.

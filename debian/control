@@ -20,14 +20,14 @@ Build-Depends:
  flex,
  gdb <!nocheck>,
  gettext,
- libcurl4-openssl-dev,
+ libcurl4-openssl-dev [linux-any],
  libicu-dev,
  libio-pty-perl <!nocheck>,
  libipc-run-perl <!nocheck>,
  libkrb5-dev,
  libldap2-dev,
  liblz4-dev,
- libnuma-dev,
+ libnuma-dev [linux-any],
  libpam0g-dev | libpam-dev,
  libperl-dev,
  libreadline-dev,
@@ -104,7 +104,7 @@ Description: PostgreSQL C client library
 
 Package: libpq-oauth
 Build-Profiles: <!pkg.postgresql.nolibpkgs>
-Architecture: any
+Architecture: linux-any
 Section: libs
 Depends:
  libpq5 (= ${binary:Version}),
