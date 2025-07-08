@@ -1,6 +1,7 @@
-postgresql-17 (17.5-2) UNRELEASED; urgency=medium
+postgresql-17 (17.6-1) UNRELEASED; urgency=medium
 
   * Add Turkish debconf translation by Atila KOÇ, thanks! (Closes: #1107984)
+  * Drop hurd-iovec patch, implemented upstream.
 
  -- Christoph Berg <myon@debian.org>  Wed, 18 Jun 2025 15:54:51 +0200
 
