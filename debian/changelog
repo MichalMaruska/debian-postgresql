@@ -1,6 +1,7 @@
 postgresql-18 (18~beta1+20250701-2) UNRELEASED; urgency=medium
 
   * Drop hurd-iovec patch, implemented upstream.
+  * debian/libpq5.symbols: Remove PQservice (introduced earlier in 18).
 
  -- Christoph Berg <myon@debian.org>  Tue, 08 Jul 2025 12:32:46 +0200
 
