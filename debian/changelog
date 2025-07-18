@@ -1,9 +1,10 @@
-postgresql-18 (18~beta1+20250701-2) UNRELEASED; urgency=medium
+postgresql-18 (18~beta2-1) experimental; urgency=medium
 
+  * New upstream version 18beta2.
   * Drop hurd-iovec patch, implemented upstream.
   * debian/libpq5.symbols: Remove PQservice (introduced earlier in 18).
 
- -- Christoph Berg <myon@debian.org>  Tue, 08 Jul 2025 12:32:46 +0200
+ -- Christoph Berg <myon@debian.org>  Fri, 18 Jul 2025 12:48:48 +0200
 
 postgresql-18 (18~beta1+20250701-1) experimental; urgency=medium
 
