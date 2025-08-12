@@ -7,7 +7,5 @@
 filter-debug-prefix-map
 libpgport-pkglibdir
 autoconf2.69
-focal-arm64-outline-atomics
-jit-s390x
 pgstat-report-conflicts-immediately.patch
 move-pages32
