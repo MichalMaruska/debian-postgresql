@@ -58,6 +58,7 @@ postgresql-17 (17.6-1) unstable; urgency=medium
 
   * Add Turkish debconf translation by Atila KOÇ, thanks! (Closes: #1107984)
   * Drop hurd-iovec patch, implemented upstream.
+  * Drop obsolete patches: focal-arm64-outline-atomics, jit-s390x.
 
  -- Christoph Berg <myon@debian.org>  Wed, 18 Jun 2025 15:54:51 +0200
 
