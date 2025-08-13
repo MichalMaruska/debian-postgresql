@@ -1,3 +1,9 @@
+postgresql-18 (18~beta3-2) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Christoph Berg <myon@debian.org>  Wed, 13 Aug 2025 23:37:10 +0200
+
 postgresql-18 (18~beta3-1) experimental; urgency=medium
 
   * New upstream version 18beta3.
