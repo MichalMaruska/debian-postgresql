@@ -8,4 +8,3 @@ filter-debug-prefix-map
 libpgport-pkglibdir
 autoconf2.69
 pgstat-report-conflicts-immediately.patch
-move-pages32
