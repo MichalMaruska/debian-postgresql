@@ -1,3 +1,16 @@
+postgresql-18 (18~rc1-1-maruska) experimental; urgency=medium
+
+  * auto: introduce my way of checking out the sources: from mmc13.1
+  * Add my Symbols to the list -- in the library!
+  * apply the patch by quilt
+  * Use 17_2_mmc
+  * release
+  * 17_5
+  * 17.6
+  * 18rc1
+
+ -- Michal Maruska <mmaruska@gmail.com>  Wed, 24 Sep 2025 00:42:42 +0200
+
 postgresql-18 (18.1-1) unstable; urgency=medium
 
   * New upstream version 18.1.
