@@ -8,3 +8,4 @@ filter-debug-prefix-map
 libpgport-pkglibdir
 autoconf2.69
 pgstat-report-conflicts-immediately.patch
+libpq.pc-no-libcurl
