@@ -17,6 +17,7 @@ usr/lib/postgresql/*/bin/pg_waldump
 usr/lib/postgresql/*/bin/pg_walsummary
 usr/lib/postgresql/*/bin/postgres
 usr/lib/postgresql/*/bin/vacuumlo
+# usr/lib/*/postgresql/*/lib/*.so
 usr/lib/postgresql/*/lib/*.so
 usr/share/locale/*/LC_MESSAGES/initdb-*.mo
 usr/share/locale/*/LC_MESSAGES/pg_archivecleanup-*.mo
