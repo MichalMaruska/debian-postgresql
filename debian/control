@@ -6,8 +6,7 @@ Uploaders:
  Martin Pitt <mpitt@debian.org>,
  Peter Eisentraut <petere@debian.org>,
  Christoph Berg <myon@debian.org>,
-Standards-Version: 4.7.0
-Rules-Requires-Root: no
+Standards-Version: 4.7.2
 Build-Depends:
  autoconf,
  bison,
@@ -42,6 +41,7 @@ Build-Depends:
  llvm-dev [amd64 arm64 mips64el ppc64 ppc64el s390x] <!pkg.postgresql.nollvm>,
  lz4 | liblz4-tool,
  mawk,
+ openssl,
  perl (>= 5.8),
  pkgconf,
  postgresql-common-dev,
