@@ -1,0 +1,83 @@
+* debugging:
+locally:
+mk-build-deps 
+time  debuild --rootcmd=fakeroot --no-tgz-check -e MAKEFLAGS -b
+
+* 17.6-1 ?
+$ git fetch origin
+...indeed tag is found.
+debian/17.6-1
+
+we have a segment
+$ git-segment 17.5-1_mmc
+
+clone it, on top of ...
+
+* start major
+18
+rebase!
+
+
+* debian/15.4-3
+
+mmc
+* re-anchor:
+
+~/repo/git-hierarchy/bin/git-rebase-poset --clone 15_4 mmc
+
+... not really clever:
+git fetch origin --tags
+
+
+NEW=17.4-1
+**** go
+OLD=17.2-1
+git-walk-down -c ${NEW}_  -s refs/tags/debian/$OLD  -t refs/tags/debian/$NEW  mmc
+git-rebase-poset ${NEW}_mmc
+
+
+
+NEW="17.5-1"
+~/go/bin/git-walk-down -s refs/tags/debian/$OLD -t refs/tags/debian/$NEW  -c $NEW mmc
+
+~/go/bin/git-walk-down ${NEW}mmc
+~/go/bin/git-rebase-poset  ${NEW}mmc
+
+git-rebase-poset -s tags/$OLD  -t tags/$NEW mmc
+
+git-rebase-poset --clone 16_0 mmc
+git reset --hard mmc
+
+
+
+* dpkg --compare-versions  16.2-2+maruska gt  16.2-2+b1
+
+
+*
+dpkg: dependency problems prevent configuration of libpq-dev:
+ libpq-dev depends on libssl-dev; however:
+  Package libssl-dev is not installed.
+
+dpkg: error processing package libpq-dev (--install):
+ dependency problems - leaving unconfigured
+Setting up libpq5:amd64 (17.5-1-maruska) ...
+Setting up postgresql-client-17 (17.5-1-maruska) ...
+Setting up postgresql-doc-17 (17.5-1-maruska) ...
+update-alternatives: using /usr/share/postgresql/17/man/man3/SPI_connect.3.gz to provide /usr/share/man/man3/SPI_connect.3.gz (SPI_connect.3.gz) in auto mode
+dpkg: dependency problems prevent configuration of postgresql-server-dev-17:
+ postgresql-server-dev-17 depends on clang-19; however:
+  Package clang-19 is not installed.
+ postgresql-server-dev-17 depends on libpq-dev (>= 17~~); however:
+  Package libpq-dev is not configured yet.
+ postgresql-server-dev-17 depends on llvm-19-dev; however:
+  Package llvm-19-dev is not installed.
+
+dpkg: error processing package postgresql-server-dev-17 (--install):
+ dependency problems - leaving unconfigured
+dpkg: dependency problems prevent configuration of libecpg-dev:
+ libecpg-dev depends on libpq-dev; however:
+  Package libpq-dev is not configured yet.
+
+dpkg: error processing package libecpg-dev (--install):
+ dependency problems - leaving unconfigured
+S
