@@ -9,6 +9,7 @@ Depends:
  logrotate,
  netcat-openbsd,
  perl,
+ postgresql-common-dev,
  procps,
  @,
 Restrictions: needs-root
