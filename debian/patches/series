@@ -9,3 +9,4 @@ libpgport-pkglibdir
 autoconf2.69
 pgstat-report-conflicts-immediately.patch
 libpq.pc-no-libcurl
+0001-Handle-EPERM-in-pg_numa_init.patch

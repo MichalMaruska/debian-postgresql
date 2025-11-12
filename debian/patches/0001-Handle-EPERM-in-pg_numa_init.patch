@@ -1,0 +1,35 @@
+From b5550ae6f5bac3de14a86a0f7677db755b27aa73 Mon Sep 17 00:00:00 2001
+From: Tomas Vondra <tomas@vondra.me>
+Date: Tue, 28 Oct 2025 16:00:07 +0100
+Subject: [PATCH] Handle EPERM in pg_numa_init
+
+---
+ src/port/pg_numa.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/src/port/pg_numa.c b/src/port/pg_numa.c
+index 3368a43a338..540ada3f8ef 100644
+--- a/src/port/pg_numa.c
++++ b/src/port/pg_numa.c
+@@ -47,7 +47,17 @@
+ int
+ pg_numa_init(void)
+ {
+-	int			r = numa_available();
++	int			r;
++
++	/*
++	 * XXX libnuma versions before 2.0.19 don't handle EPERM by disabling
++	 * NUMA, which then leads to unexpected failures later. This affects
++	 * containers that disable get_mempolicy by a seccomp profile.
++	 */
++	if (get_mempolicy(NULL, NULL, 0, 0, 0) < 0 && (errno == EPERM))
++		r = -1;
++	else
++		r = numa_available();
+ 
+ 	return r;
+ }
+-- 
+2.51.0
+

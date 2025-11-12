@@ -22,6 +22,7 @@ postgresql-18 (18.1-1) unstable; urgency=medium
       The PostgreSQL Project thanks Aleksey Solovev of Positive Technologies
       for reporting this problem. (CVE-2025-12818)
 
+  * Handle EPERM in pg_numa_init.
   * Test-Depend on postgresql-common-dev.
 
  -- Christoph Berg <myon@debian.org>  Tue, 11 Nov 2025 13:05:55 +0100
