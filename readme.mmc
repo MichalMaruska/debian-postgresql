@@ -1,6 +1,6 @@
 * debugging:
 locally:
-mk-build-deps 
+mk-build-deps
 time  debuild --rootcmd=fakeroot --no-tgz-check -e MAKEFLAGS -b
 
 * 17.6-1 ?
@@ -12,6 +12,23 @@ we have a segment
 $ git-segment 17.5-1_mmc
 
 clone it, on top of ...
+
+
+* new minor version:
+
+- clone the segment
+- rebase on the TAG
+
+git-segment  mmc17.6-1
+git-walk-down -v  -v  -c 17.6-1 17.7-3 mmc17.6-1
+git-walk-down -v  -r  refs/tags/debian/17.6-1   refs/tags/debian/17.7-3  mmc17.7-3
+git-rebase-poset -v  -v  mmc17.7-3
+
+git-rebase-poset -v  -v  -c mmc17.7-3
+
+
+
+
 
 * start major
 18
