@@ -1,8 +1,7 @@
 #!/bin/zsh -feu
 
-# checkout into:
-# a worktree?
-git archive --remote ~/git/postgresql/ mmc18.3 | tar x
+git archive --remote ~/git/postgresql/ mmc_18.4 \
+    | tar x
 
 # so I should apply the patches too!
 QUILT_PATCHES=debian/patches quilt push -a
