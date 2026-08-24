@@ -1,6 +1,9 @@
 #!/bin/zsh -feu
 
-git archive --remote ~/git/postgresql/ mmc_18.4 \
+ref=$(sed -n -e 's|^ref = \([^ ]\+\) *$|\1|p' debian/upstream-source)
+# fail if errors.
+
+git archive --remote ~/git/postgresql/ $ref \
     | tar x
 
 # so I should apply the patches too!
